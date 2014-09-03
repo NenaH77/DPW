@@ -13,17 +13,17 @@ Doc strings
 #no camel case. Use underscores
 first_name = "Kermit"
 last_name = "de Frog"
-#print first_name
+print first_name
 
-#response = raw_input("Enter you name  ")
-#print "Hello there, " , response
+response = raw_input("Enter you name  ")
+print "Hello there, " , response
 
 
 #expressions
-'''birth_year = 1923
+birth_year = 1923
 current_year = 2014
 age = current_year - birth_year
-print age'''
+print age
 
 
 birth_year = 1923
@@ -91,7 +91,7 @@ characters = ["leia", "luke", "chewy", "lando"]
 characters.append("obi won")
 print characters[0]
 
-
+#Dictionary object
 movies = dict() #create dictionary object
 movies = {"Star Wars":"Darth Vader", "Silence of the Lambs":"Hannibal Lecter"}
 print movies["Star Wars"]
@@ -109,7 +109,7 @@ while i<9:
 '''
 for i in range(0,10):
     print "The for loop count is", i
-    i = i + 1'
+    i = i + 1
 '''
 
 # for each loop -----
