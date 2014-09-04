@@ -1,11 +1,12 @@
+'''
 __author__ = 'NenaH77'
+Angelica M. Dinh
+Assignment MadLib
+Sept 3, 2014
+DPW
 
+'''
 
-#Array
-disney = ["Mickey Mouse", "Donald Duck", "Goofy", "Pluto"]
-d_villain = ["Pete", "Mortimer Mouse", "Phantom Blot", "Emil Eagle"]
-machine_array = ["shrinking", "enlarging", "evaporating"]
-body_array = ["hand", "foot", "back", "side"]
 
 #input field string and dictionary
 string = dict()
@@ -21,12 +22,16 @@ machine = raw_input("Enter a number from 0-2 ")
 body = raw_input("Enter a number from 0-3 ")
 
 
-#used as dictionary object above. need to make into variables
+#need to create dictionary objects as variables
 name1 = string["name1"]
 adj = string["adj"]
 adj1 = string["adj1"]
 
-
+#function
+def height(inch, ft):
+     tall = int(inch/ft)
+     return tall
+willie_tall = height(600, 12);
 
 #function
 year = 2014
@@ -34,6 +39,9 @@ def willie_age(y, yb):
     age = ((y - int(yb)) + 10)/2
     return age
 a = willie_age(year, year_born);
+
+#array 1
+machine_array = ["shrinking", "enlarging", "evaporating"]
 
 #conditional 1
 def machine_select(num):
@@ -47,6 +55,9 @@ def machine_select(num):
         return "machine gun"
 
 weapon = machine_select(int(machine))
+
+#array 2
+body_array = ["hand", "foot", "back", "side"]
 
 #conditional 2
 def body_part(num):
@@ -64,29 +75,36 @@ def body_part(num):
 b = body_part(int(body))
 
 
+
+import random  #http://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
+
+#array 3
+disney = ["Mickey Mouse", "Donald Duck", "Goofy", "Pluto"]
 #loop 1
-import random #http://www.pythonforbeginners.com/random/how-to-use-the-random-module-in-python
-
 for d in disney:
-    random.choice(d)
+    d = d + ' . ' + random.choice(disney)
 
+#array 4
+d_villain = ["Pete", "Mortimer Mouse", "Phantom Blot", "Emil Eagle"]
 #loop 2
 for v in d_villain:
     random.choice(v)
 
+
 story = '''
-    Today, {name1} dreamt he/she was playing with {d} and his pals at Clubhouse Mickey.
-    They were playing a fun game of superheros when all of a sudden an overcast appeared in mid air.
-    There up in the sky a(n) {adj} ship flew over them and began {weapon} everything in sight. {name1} wondered
-    who would do such a thing to her best friends. Suddenly he/she noticed {v_char[bad_guy]} in the ship. They needed
-    to somehow take his {weapon} machine from him. Then they thought, what if they could ask Willie the Giant
-    to come help. They ran to the Clubhouse and called him from the house phone. Willie the Giant was {a}
-    years old and 50 ft tall. They ran over towards him to warn him about the ship, luckily the ships back
-    was facing towards him. As he came down his farm house in the sky, he climbed down from the bean stalk
-    and blocked the ships view with his {adj1} {b}. {name1} lassoed a rope around the ships nose and each
-    friend grabbed a hold of the rope and pulled the it down until it crashed into a tree. The clubhouse
-    was saved and all of {name1}'s friends cheered and danced to the Hot Dog Dance.
+    Today, {name1} dreamt he/she was playing with {d} and his pals were playing a fun game of superheros
+    at Clubhouse Mickey. Suddenly an overcast appeared. Up in the sky a(n) {adj} ship flew over
+    them and began {weapon} everything in sight. {name1} wondered who would do such a thing to her best
+    friends. Suddenly he/she noticed {v} in the ship. They needed to somehow take his {weapon} machine
+    from him. They thought, what if they could ask Willie the Giant to come help. So they quickly ran to the
+    Clubhouse and called him from the house phone. Willie the Giant was {a} years old and {willie_tall}
+    ft tall. They ran over towards him to warn him about the ship and luckily the ships back was facing towards
+    him. As he came down from the bean stalk, he blocked the ships view with his {adj1} {b}. {name1} lassoed
+    a rope around the ships nose and all his/her friends grabbed a hold of the rope and pulled it down
+    until it crashed into a tree. The clubhouse was saved and all of {name1}'s friends cheered and danced to
+    the Hot Dog Dance.
     The End
-    '''
+'''
 story = story.format(**locals())
 print story
+
