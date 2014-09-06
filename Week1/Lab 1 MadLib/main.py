@@ -57,7 +57,7 @@ def machine_select(num):
 weapon = machine_select(int(machine))
 
 #array 2
-body_array = ["hand", "foot", "back", "side"]
+body_array = ["hand", "foot", "backside", "stomach"]
 
 #conditional 2
 def body_part(num):
