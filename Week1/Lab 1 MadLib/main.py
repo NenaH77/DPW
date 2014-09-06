@@ -81,27 +81,27 @@ import random  #http://www.pythonforbeginners.com/random/how-to-use-the-random-m
 #array 3
 disney = ["Mickey Mouse", "Donald Duck", "Goofy", "Pluto"]
 #loop 1
+random.shuffle(disney)
 for d in disney:
-    d = d + ' . ' + random.choice(disney)
-
+    pass
 #array 4
 d_villain = ["Pete", "Mortimer Mouse", "Phantom Blot", "Emil Eagle"]
 #loop 2
-for v in d_villain:
-    random.choice(v)
-
+random.shuffle(d_villain)
+for dv in d_villain:
+    pass
 
 story = '''
-    Today, {name1} dreamt he/she was playing with {d} and his pals were playing a fun game of superheros
+    Today, {name1} dreamt he/she was playing with {d} and his pals. They were playing a fun game of superheros
     at Clubhouse Mickey. Suddenly an overcast appeared. Up in the sky a(n) {adj} ship flew over
     them and began {weapon} everything in sight. {name1} wondered who would do such a thing to her best
-    friends. Suddenly he/she noticed {v} in the ship. They needed to somehow take his {weapon} machine
+    friends. Suddenly he/she noticed {dv} in the ship. They needed to somehow take his {weapon} machine
     from him. They thought, what if they could ask Willie the Giant to come help. So they quickly ran to the
     Clubhouse and called him from the house phone. Willie the Giant was {a} years old and {willie_tall}
     ft tall. They ran over towards him to warn him about the ship and luckily the ships back was facing towards
     him. As he came down from the bean stalk, he blocked the ships view with his {adj1} {b}. {name1} lassoed
     a rope around the ships nose and all his/her friends grabbed a hold of the rope and pulled it down
-    until it crashed into a tree. The clubhouse was saved and all of {name1}'s friends cheered and danced to
+    until it crashed into a tree. The clubhouse was saved and all of {name1}\'s friends cheered and danced to
     the Hot Dog Dance.
     The End
 '''
