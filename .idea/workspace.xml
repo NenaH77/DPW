@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py" afterPath="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py" afterPath="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py" />
     </list>
     <ignored path="DPW.iws" />
@@ -27,21 +28,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.77697843" vertical-offset="0" max-vertical-offset="695">
-                  <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="630">
+                  <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="page.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="page.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="1440">
-                  <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.74204946" vertical-offset="885" max-vertical-offset="1455">
+                  <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -66,7 +67,7 @@
           <file leaf-file-name="pages.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Week1/classes-html/pages.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5058651" vertical-offset="0" max-vertical-offset="682">
+                <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
                   <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
@@ -100,16 +101,16 @@
         <option value="$PROJECT_DIR$/Week1/Simple-Form/simple-login/main.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/simple_form_lab/main.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/simple_form_lab/app.yaml" />
-        <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py" />
+        <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="15" />
     <option name="y" value="22" />
-    <option name="width" value="1332" />
-    <option name="height" value="792" />
+    <option name="width" value="1327" />
+    <option name="height" value="676" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -382,14 +383,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="22" width="1332" height="792" extended-state="0" />
+    <frame x="15" y="22" width="1327" height="676" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.116366364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11680482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30241936" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -515,14 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="1440">
-          <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Week1/classes-html/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
@@ -535,7 +528,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week1/classes-html/pages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5058651" vertical-offset="0" max-vertical-offset="682">
+        <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
@@ -543,8 +536,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77697843" vertical-offset="0" max-vertical-offset="695">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="660">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74204946" vertical-offset="885" max-vertical-offset="1455">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -10,25 +10,25 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):#where my function begins
-        p = page() #p represents class page(object) from page.py
+        pg = page() #p represents class page(object) from page.py
 
 
         if self.request.GET:
             #stores info from the variable form
-            first_name = self.request.GET['first_name']
-            last_name = self.request.GET['last_name']
-            email = self.request.GET['email']
-            phone = self.request.GET['phone']
-            aboutyou = self.request.GET['about-you']
-            religion = self.request.GET['religion']
+            fn = self.request.GET['first_name']
+            ln = self.request.GET['last_name']
+            em = self.request.GET['email']
+            ph = self.request.GET['phone']
+            ay = self.request.GET['about-you']
+            rel = self.request.GET['religion']
             edu = self.request.GET['edu']
-            gender = self.request.GET['gender']
-            ethnicity = self.request.GET['ethnicity']
+            gend = self.request.GET['gender']
+            eth = self.request.GET['ethnicity']
 
             #call print function (displays info)
-            self.response.write(p.print_out(all)) #writes to our browser page
+            self.response.write(pg.print_out(fn + ln + em + ph + ay + rel + edu + gend + eth)) #writes to our browser page
         else:
-            self.response.write(p.print_out(" "))
+            self.response.write(pg.print_out(""))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

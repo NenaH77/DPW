@@ -83,9 +83,10 @@ class page(object):
 #def content(self):
     #return self.content
 
-#def footer(self):
+#def end(self):
     #return self.footer
 
 def print_out(self):
-    all = self.page_header + self.page_content + self.page_footer
+    all = self.page_header + self.page_content + self.page_end
+    all = all.format(**locals())
     return all
