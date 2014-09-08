@@ -8,9 +8,12 @@ assignment: Simple Form
 
 import webapp2
 
+#import file
+from page import page1
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):#where my function begins
-        pg = page() #p represents class page(object) from page.py
+        pg = page1() #p represents class page(object) from page.py
 
 
         if self.request.GET:

@@ -1,5 +1,5 @@
 __author__ = 'NenaH77'
-class page(object):
+class page1(object):
     def __init__(self):#constructor function
         self.title = "Orlando Singles" #attribute of page
         self.css = "css/style.css" #css info
@@ -86,6 +86,7 @@ class page(object):
 #def end(self):
     #return self.footer
 
+#print function that is being called in main
 def print_out(self):
     all = self.page_header + self.page_content + self.page_end
     all = all.format(**locals())

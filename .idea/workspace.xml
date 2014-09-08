@@ -28,21 +28,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="630">
-                  <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+                <state vertical-scroll-proportion="0.8704663" vertical-offset="51" max-vertical-offset="675">
+                  <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="page.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="page.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.74204946" vertical-offset="885" max-vertical-offset="1455">
-                  <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1470">
+                  <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -52,10 +52,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Week1/classes-html/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+                <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
                   <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding>
                     <element signature="e#75#89#0" expanded="true" />
@@ -64,10 +64,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pages.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="pages.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Week1/classes-html/pages.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
                   <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
@@ -101,8 +101,8 @@
         <option value="$PROJECT_DIR$/Week1/Simple-Form/simple-login/main.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/simple_form_lab/main.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/simple_form_lab/app.yaml" />
-        <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py" />
         <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py" />
+        <option value="$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py" />
       </list>
     </option>
   </component>
@@ -516,9 +516,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week1/classes-html/main.py">
+    <entry file="file://$PROJECT_DIR$/Week1/classes-html/pages.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Week1/classes-html/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="e#75#89#0" expanded="true" />
@@ -526,26 +534,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week1/classes-html/pages.py">
+    <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60954064" vertical-offset="0" max-vertical-offset="566">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="1470">
+          <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="660">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74204946" vertical-offset="885" max-vertical-offset="1455">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8704663" vertical-offset="51" max-vertical-offset="675">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
           <folding />
         </state>
       </provider>
