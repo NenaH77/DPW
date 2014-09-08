@@ -1,18 +1,17 @@
 __author__ = 'NenaH77'
 class page1(object):
     def __init__(self):#constructor function
-        self.title = "Orlando Singles" #attribute of page
-        self.css = "css/style.css" #css info
-        #heading
-        self.page_header = '''<!DOCTYPE HTML>
+
+#HTML heading
+        page_header = '''<!DOCTYPE HTML>
 <html>
     <head>
         <title>Orlando Singles</title>
         <link href = "{main.css}" rel="stylesheet" type="text/css" />
     </head>
     <body> '''
-#body
-        self.page_content = '''<form method="GET" action="" >
+#HTML body
+        page_content = '''<form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
 
@@ -68,8 +67,8 @@ class page1(object):
         <input type="submit" value="Submit">
         </form>
         '''
-
-        self.page_end = '''
+#HTML end
+        page_end = '''
         <footer>
             <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
         </footer>
@@ -89,5 +88,4 @@ class page1(object):
 #print function that is being called in main
 def print_out(self):
     all = self.page_header + self.page_content + self.page_end
-    all = all.format(**locals())
     return all

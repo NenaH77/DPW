@@ -29,9 +29,11 @@ class MainHandler(webapp2.RequestHandler):
             eth = self.request.GET['ethnicity']
 
             #call print function (displays info)
-            self.response.write(pg.print_out(fn + ln + em + ph + ay + rel + edu + gend + eth)) #writes to our browser page
+            self.response.write(all + fn + ln + em + ph + ay + rel + edu + gend + eth) #writes to our browser page
+        #if no info, display form
         else:
-            self.response.write(pg.print_out(""))
+            self.reponse.write(pg.print_out(all))
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
