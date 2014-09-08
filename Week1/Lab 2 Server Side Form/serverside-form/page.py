@@ -3,7 +3,7 @@ class page1(object):
     def __init__(self):#constructor function
 
 #HTML heading
-        page_header = '''<!DOCTYPE HTML>
+        self.page_header = '''<!DOCTYPE HTML>
 <html>
     <head>
         <title>Orlando Singles</title>
@@ -11,7 +11,7 @@ class page1(object):
     </head>
     <body> '''
 #HTML body
-        page_content = '''<form method="GET" action="" >
+        self.page_content = '''<form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
 
@@ -68,7 +68,7 @@ class page1(object):
         </form>
         '''
 #HTML end
-        page_end = '''
+        self.page_end = '''
         <footer>
             <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
         </footer>
@@ -76,16 +76,14 @@ class page1(object):
 </html>
 '''
 
-#def header(self):
-    #return self.header
-
-#def content(self):
-    #return self.content
-
-#def end(self):
-    #return self.footer
-
 #print function that is being called in main
-def print_out(self):
-    all = self.page_header + self.page_content + self.page_end
-    return all
+def page_header(self):
+    return self.page_header
+
+def page_content(self):
+    return self.page_content
+
+def page_end(self):
+    return self.page_end
+
+

@@ -12,9 +12,9 @@ import webapp2
 from page import page1
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):#where my function begins
-        pg = page1() #p represents class page(object) from page.py
 
+    def get(self):#calling my function and where it begins
+        pg = page1() #pg is stored as simple variable
 
         if self.request.GET:
             #stores info from the variable form
@@ -29,10 +29,10 @@ class MainHandler(webapp2.RequestHandler):
             eth = self.request.GET['ethnicity']
 
             #call print function (displays info)
-            self.response.write(all + fn + ln + em + ph + ay + rel + edu + gend + eth) #writes to our browser page
+            self.response.write(pg.page_header + pg.page_content + pg.page_end) #writes to our browser page
         #if no info, display form
         else:
-            self.reponse.write(pg.print_out(all))
+            self.reponse.write(pg.page_header + pg.page_content + pg.page_end)
 
 
 app = webapp2.WSGIApplication([
