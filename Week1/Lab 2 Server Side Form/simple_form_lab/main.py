@@ -9,7 +9,12 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
+        head = '''<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Orlando Singles</title>
+    </head>
+    <body> '''
 
 
 
