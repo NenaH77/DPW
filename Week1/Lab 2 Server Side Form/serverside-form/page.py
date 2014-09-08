@@ -1,24 +1,18 @@
-'''
-name: Angelica M. Dinh
-date: Sept 8, 2014
-class: DWP
-assignment: Simple Form
-'''
-
-
-import webapp2
-
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-#heading
-        page_open = '''<!DOCTYPE HTML>
+__author__ = 'NenaH77'
+class page(object):
+    def __init__(self):#constructor function
+        self.title = "Orlando Singles" #attribute of page
+        self.css = "css/style.css" #css info
+        #heading
+        self.page_header = '''<!DOCTYPE HTML>
 <html>
     <head>
         <title>Orlando Singles</title>
+        <link href = "{main.css}" rel="stylesheet" type="text/css" />
     </head>
     <body> '''
 #body
-        page_content = '''<form method="GET" action="" >
+        self.page_content = '''<form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
 
@@ -32,10 +26,10 @@ class MainHandler(webapp2.RequestHandler):
         <input class="input" type="phone" name="phone" placeholder="888-123-1234" required /><br>
 
         <label for="aboutyou">About You: </label><br>
-        <textarea class="input" name="about-you"></textarea><br>
+        <textarea class="input" name="aboutyou"></textarea><br>
 
         <label for=religion">Religion:</label>
-        <select class="input">
+        <select class="input" name="religion">
             <optgroup label="Believer">
                 <option value="christianity">Christianity</option>
                 <option value="islam">Islam</option>
@@ -53,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
         </select><br>
 
         <label for=education">Education:</label>
-        <select class="input">
+        <select class="input" name='edu'>
                 <option value="high">High School</option>
                 <option value="assoc">Associates</option>
                 <option value="bach">Bachelor</option>
@@ -71,41 +65,23 @@ class MainHandler(webapp2.RequestHandler):
         <input class="input" type="checkbox" name="ethnicity" value="latino">Latino<br>
         <input class="input" type="checkbox" name="ethnicity" value="asian">Asian<br>
 
-        <input type="submit" value="Submit">'''
-
-page_end = '''
+        <input type="submit" value="Submit">
         </form>
+        '''
+
+        self.page_end = '''
+        <footer>
+            <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
+        </footer>
     </body>
 </html>
 '''
-        
 
+def header(self):
+    return self.header
 
+def content(self):
+    return self.content
 
-
-
-
-
-
-
-
-
-        self.response.write(page_open + page_content)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-], debug=True)
+def footer(self):
+    return self.footer
