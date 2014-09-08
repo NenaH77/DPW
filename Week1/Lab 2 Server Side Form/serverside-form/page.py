@@ -77,11 +77,15 @@ class page(object):
 </html>
 '''
 
-def header(self):
-    return self.header
+#def header(self):
+    #return self.header
 
-def content(self):
-    return self.content
+#def content(self):
+    #return self.content
 
-def footer(self):
-    return self.footer
+#def footer(self):
+    #return self.footer
+
+def print_out(self):
+    all = self.page_header + self.page_content + self.page_footer
+    return all
