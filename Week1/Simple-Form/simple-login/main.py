@@ -12,27 +12,31 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
 
 #GET = friendlier to work with, visible, part of the URL, and has character limitations. POST = something secure. It allows for more characters to be sent at one time. Hidden
 
-
-        page = '''<!DOCTYPE HTML>
+    page_head = '''<!DOCTYPE HTML>
 <html>
     <head>
         <title>Simple Form</title>
     </head>
-    <body>
-        <form method="GET">
-            <label>Name: </label><input type="text" name="user"/>
-            <label>Email: </label><input type="text" name="email"/>
-            <input type="submit" value="Submit" />
+    <body> '''
+
+    page_body = '''<form method="GET" action="">
+        <label>Name: </label><input type="text" name="user"/>
+        <label>Email: </label><input type="text" name="email"/>
+        <input type="submit" value="Submit" />'''
+
+    page_close = '''
         </form>
     </body>
-</html>
-        '''
-        if self.request.GET:
-            #stores info we got from the form
-            user = self.request.GET['user'] #must match the info from above
-            email = self.request.GET['email']
+</html>'''
 
-        self.response.write(page) #prints our info out
+    if self.request.GET:
+        #stores info we got from the form
+        user = self.request.GET['user'] #must match the info from above
+        email = self.request.GET['email']
+        self.response.write(page_head + user + " " + email + page_body + page_close)
+    else:
+        self.response.write(page_head + page_body + page_close)
+        #self.response.write(page) #prints our info out
 
 
 
