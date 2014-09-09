@@ -65,7 +65,7 @@ class Page(object):
         <input class="input" type="radio" name="gender" value="men">Men<br>
         <input class="input" type="radio" name="gender" value="women">Women<br>
 
-        <label for="ethnicity">Ethnicity: </label><br>
+        <label for="ethnicity">Ethnicity preference: </label><br>
         <input class="input" type="checkbox" name="ethnicity" value="white">White<br>
         <input class="input" type="checkbox" name="ethnicity" value="black">Black<br>
         <input class="input" type="checkbox" name="ethnicity" value="latino">Latino<br>
