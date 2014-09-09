@@ -15,6 +15,10 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My page!" #Setter was created so we could change
         p.css = "css/style.css"
         p.body = "Miss Piggy likes Kermit de Frog!"
+        p.update()
+        self.response.write(p.whole_page)
+
+
 
         #print p.print_out() # this prints on our log console google engine
         #self.response.write(p.print_out()) #writes to our browser page
