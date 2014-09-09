@@ -1,9 +1,12 @@
 __author__ = 'NenaH77'
-class page1(object):
+
+
+class Page(object):
     def __init__(self):#constructor function
 
 #HTML heading
-        self.page_header = '''<!DOCTYPE HTML>
+        self.page_header = '''
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Orlando Singles</title>
@@ -11,7 +14,8 @@ class page1(object):
     </head>
     <body> '''
 #HTML body
-        self.page_content = '''<form method="GET" action="" >
+        self.page_content = '''
+    <form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
 
@@ -65,25 +69,18 @@ class page1(object):
         <input class="input" type="checkbox" name="ethnicity" value="asian">Asian<br>
 
         <input type="submit" value="Submit">
-        </form>
+    </form>
         '''
 #HTML end
         self.page_end = '''
-        <footer>
-            <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
-        </footer>
+    <footer>
+        <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
+    </footer>
     </body>
 </html>
 '''
 
-#print function that is being called in main
-def page_header(self):
-    return self.page_header
-
-def page_content(self):
-    return self.page_content
-
-def page_end(self):
-    return self.page_end
-
+    #print function that is being called in main
+    def print_out(self):
+        return self.page_header + self.page_content + self.page_end
 
