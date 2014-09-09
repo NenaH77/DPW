@@ -1,12 +1,51 @@
 body {
    background: url('../images/couples_h.jpg') no-repeat center top;
+    width: 100%;
 }
 
 .wrapper{
-    background-color: #f3f3f3;
-    width: 25%;
+    background-color: #659D32;
+    width: 28%;
     line-height: 25px;
     margin: 5px;
-    padding: 10px;
+    padding: 12px;
+}
+
+h1{
+  font-family: 'Lily Script One', cursive;
+  font-size: 47px;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    font-size: 10px;
+}
+
+/*
+~~~~~~~~~~~~~
+Media Queries
+~~~~~~~~~~~~~
+*/
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+    body { width: 85%; }
+    .wrapper { width: 35%; padding:20px; margin: 10px; }
+    h1{ font-size: 40px; }
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
 
 }

@@ -11,11 +11,13 @@ class Page(object):
     <head>
         <title>Orlando Singles</title>
         <link href = "css/main.css" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
     </head>
     <body> '''
 #HTML body
         self.page_content = '''
     <div class="wrapper">
+    <h1>Orlando Singles</h1>
     <form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
