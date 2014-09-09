@@ -16,7 +16,7 @@ class MainHandler(webapp2.RequestHandler):
         page = Page() #pg is stored as simple variable
 
         if self.request.GET:
-            #stores info from the variable form
+            #stores info that user submits in form
             fn = self.request.GET['first_name']
             ln = self.request.GET['last_name']
             em = self.request.GET['email']
@@ -27,11 +27,12 @@ class MainHandler(webapp2.RequestHandler):
             gend = self.request.GET['gender']
             eth = self.request.GET['ethnicity']
 
-            #call print function (displays info)
-            self.response.write(page.print_out(fn + ln + em + ph + ay + rel + edu + gend + eth)) #writes to our browser page
+            #displays function (displays info)
+            self.response.write(page.page_header + page.page_content + fn + ln + em + ph + ay + rel + edu + gend + eth + page.page_end) #writes to our browser page
             #if no info, display form
         else:
-            self.response.write(page.print_out())
+            #displays original form
+            self.response.write(page.page_header + page.page_content + page.page_end)
 
 
 

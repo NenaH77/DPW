@@ -78,13 +78,18 @@ class Page(object):
 #HTML end
         self.page_end = '''
     <footer>
-        <p>Copyright &copy; 2014 <strong>Orlando Singles</strong></p>
+        <p>Copyright &copy; 2014 <strong>Orlando Singles</strong> | Angelica M. Dinh</p>
     </footer>
     </body>
 </html>
 '''
 
     #print function that is being called in main
-    def print_out(self):
-        return self.page_header + self.page_content + self.page_end
+    def page_header(self):
+        return self.page_header
 
+    def page_content(self):
+        return self.page_content
+
+    def page_end(self):
+        return self.page_end
