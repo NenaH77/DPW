@@ -10,7 +10,7 @@ class Page(object):
 <html>
     <head>
         <title>Orlando Singles</title>
-        <link href = "{main.css}" rel="stylesheet" type="text/css" />
+        <link href = "css/main.css" rel="stylesheet" type="text/css" />
     </head>
     <body> '''
 #HTML body
