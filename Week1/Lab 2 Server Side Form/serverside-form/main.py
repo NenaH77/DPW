@@ -28,6 +28,8 @@ class MainHandler(webapp2.RequestHandler):
             gend = self.request.GET['gender']
             eth = self.request.GET['ethnicity']
 
+
+
             #call print function (displays info)
             self.response.write(pg.page_header + pg.page_content + pg.page_end) #writes to our browser page
         #if no info, display form
