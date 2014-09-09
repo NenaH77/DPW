@@ -15,6 +15,7 @@ class Page(object):
     <body> '''
 #HTML body
         self.page_content = '''
+    <div class="wrapper">
     <form method="GET" action="" >
         <label for="first_name">First Name: </label>
         <input class="input" type="text" name="first_name" placeholder="Enter your First Name" required /><br>
@@ -70,6 +71,7 @@ class Page(object):
 
         <input type="submit" value="Submit">
     </form>
+    </div>
         '''
 #HTML end
         self.page_end = '''

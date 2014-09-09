@@ -1,3 +1,12 @@
 body {
-    background-color: yellow;
+   background: url('../images/couples_h.jpg') no-repeat center top;
+}
+
+.wrapper{
+    background-color: #f3f3f3;
+    width: 25%;
+    line-height: 25px;
+    margin: 5px;
+    padding: 10px;
+
 }
