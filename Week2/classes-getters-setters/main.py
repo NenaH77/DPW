@@ -1,8 +1,8 @@
 '''
 name: Angelica Dinh
-date: sept 4, 2014
+date: sept 8, 2014
 class: dpw
-lab: class-html
+lab: getters and setters
 
 '''
 import webapp2
