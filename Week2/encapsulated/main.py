@@ -45,11 +45,11 @@ class MainHandler(webapp2.RequestHandler):
 
         #adriana's salary
         adriana = Salary() #instance of my object
-        adriana.hr_worked = 20
-        adriana.hourly = 16
-        adriana.weekly = 320
-        adriana.monthly = 1386
-        adriana.annually = 33280
+        adriana.hr_worked = 40
+        adriana.hourly = 20
+        adriana.weekly = 800
+        adriana.monthly = 3466
+        adriana.annually = 41600
         adriana.calc_total()
         self.response.write("<br /> Adriana's weekly earning <br /> $" + str(adriana.earn_weekly))
         self.response.write("<br /> Adriana's monthly earning <br /> $" + str(adriana.earn_month))
@@ -61,20 +61,20 @@ class MainHandler(webapp2.RequestHandler):
 
 
         #alexandra's salary
-        lily = Salary() #instance of my object
-        lily.hr_worked = 40
-        lily.hourly = 26
-        lily.weekly = 1040
-        lily.monthly = 4160
-        lily.annually = 54080
-        lily.calc_total()
-        self.response.write("<br /> Lily's weekly earning <br /> $" + str(lily.earn_weekly))
-        self.response.write("<br /> Lily's monthly earning <br /> $" + str(lily.earn_month))
-        self.response.write("<br />Lily's annual earning <br /> $" + str(lily.earn_annual))
-        self.response.write("<br /> Lily's federal income <br /> $" + str(lily.federal_income))
-        self.response.write("<br /> Lily's pension <br /> $" + str(lily.pension_plan))
-        self.response.write("<br /> Lily's deductions <br /> $" + str(lily.deductions))
-        self.response.write("<br />Lily's Net Pay <br /> $" + str(lily.net_pay))
+        alexandra = Salary() #instance of my object
+        alexandra.hr_worked = 20
+        alexandra.hourly = 16
+        alexandra.weekly = 320
+        alexandra.monthly = 1386
+        alexandra.annually = 33280
+        alexandra.calc_total()
+        self.response.write("<br /> Alexandra's weekly earning <br /> $" + str(alexandra.earn_weekly))
+        self.response.write("<br /> Alexandra's monthly earning <br /> $" + str(alexandra.earn_month))
+        self.response.write("<br />Alexandra's annual earning <br /> $" + str(alexandra.earn_annual))
+        self.response.write("<br /> Alexandra's federal income <br /> $" + str(alexandra.federal_income))
+        self.response.write("<br /> Alexandra's pension <br /> $" + str(alexandra.pension_plan))
+        self.response.write("<br /> Alexandra's deductions <br /> $" + str(alexandra.deductions))
+        self.response.write("<br />Alexandra's Net Pay <br /> $" + str(alexandra.net_pay))
 
 class Salary(object):
     def __init__(self):
