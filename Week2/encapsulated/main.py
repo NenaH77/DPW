@@ -15,9 +15,9 @@ class MainHandler(webapp2.RequestHandler):
         van = Salary() #instance of my object
         van.hr_worked = 40
         van.hourly = 60
-        van.weekly = 2400
-        van.monthly = 9600
-        van.annually = 124800
+        #van.weekly = 2400
+        #van.monthly = 9600
+        #van.annually = 124800
         van.calc_total()
         self.response.write("<br /> Van's weekly earning <br /> $" + str(van.earn_weekly))
         self.response.write("<br /> Van's monthly earning <br /> $" + str(van.earn_month))
@@ -62,10 +62,10 @@ class MainHandler(webapp2.RequestHandler):
 
         #alexandra's salary
         alexandra = Salary() #instance of my object
-        alexandra.hr_worked = 20
+        alexandra.hr_worked = 36
         alexandra.hourly = 16
-        alexandra.weekly = 320
-        alexandra.monthly = 1386
+        alexandra.weekly = 576
+        alexandra.monthly = 2496
         alexandra.annually = 33280
         alexandra.calc_total()
         self.response.write("<br /> Alexandra's weekly earning <br /> $" + str(alexandra.earn_weekly))
