@@ -44,9 +44,15 @@ class Salary(object):
        self.weekly = 0
        self.monthly = 0
        self.annually = 0
-       self.earn_weekly = 0
+       self.__earn_weekly = 0
        self.__earn_month = 0 #private
        self.__earn_annual = 0 #private
+       self.__federal_income = 0 #private
+       self.__pension_plan = 0 #private
+       self.__medical_ins = 0 #private
+       self.__deductions = 0 #private
+       self.__net_pay = 0 #private
+
 
     #weekly pay
     @property #getters
@@ -75,6 +81,22 @@ class Salary(object):
     def earn_annual(self, new_earn_annual):
         self.__earn_annual = new_earn_annual
 
+    #federal income
+    @property
+    def federal_income(self):
+        return self.__federal_income
+
+    @federal_income.setter
+    def federal_income(self, new_federal_income):
+        self.__federal_income = new_federal_income
+
+
+
+
+
+
+
+
     #net pay
     @property
     def net_pay(self):
@@ -89,11 +111,11 @@ class Salary(object):
         self.__earn_weekly = (self.hr_worked * self.hourly)
         self.__earn_month = ((self.hourly * self.hr_worked)* 52)/ 12
         self.__earn_annual = (self.hourly * 2080)
-        self.__net_pay = ((self.earn_weekly * .20) - (.05 * self.earn_weekly) - (75 - self.earn_weekly))
-
-
-
-
+        self.__federal_income = (self.earn_weekly * .20)
+        self.__pension_plan = (self.earn_weekly * .05)
+        self.__medical_ins = (self.earn_weekly - 75)
+        self.__deductions = (self.federal_income - self.pension_plan - self.medical_ins)
+        self.__net_pay = (self.earn_weekly - self.deductions)
 
 
 
