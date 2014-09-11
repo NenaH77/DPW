@@ -91,11 +91,32 @@ class Salary(object):
         self.__federal_income = new_federal_income
 
 
+    #pension plan
+    @property
+    def pension_plan(self):
+        return self.__pension_plan
 
+    @pension_plan.setter
+    def pension_plan(self, new_pension_plan):
+        self.__pension_plan = new_pension_plan
 
+    #medical ins
+    @property
+    def medical_ins(self):
+        return self.__medical_ins
 
+    @medical_ins.setter
+    def medical_ins(self, new_medical_ins):
+        self.__medical_ins = new_medical_ins
 
+    #deductions
+    @property
+    def deductions(self):
+        return self.__deductions
 
+    @deductions.setter
+    def deductions(self, new_deductions):
+        self.__deductions = new_deductions
 
     #net pay
     @property
