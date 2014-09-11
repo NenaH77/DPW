@@ -67,12 +67,15 @@ class MainHandler(webapp2.RequestHandler):
 
 
         #making array for ppl's salary link; when link is clicked info will display
-        ppl = [self.van, self.lily, self.adriana, self.alexandra]
-        print ppl
+        person = [self.van, self.lily, self.adriana, self.alexandra]
+        print person
 
+        #writes header and body onto the page
+        self.response.write(p.page_header + p.page_body)
 
-
-
+        #if into is received
+        if self.request.GET:
+           ppl = int(self.request.GET["ppl"])
 
 '''
         if self.request.GET:

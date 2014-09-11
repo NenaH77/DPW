@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36952713" vertical-offset="914" max-vertical-offset="3135">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="3180">
+              <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="page.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.73555166" vertical-offset="0" max-vertical-offset="765">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -580,14 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Week1/Lab 2 Server Side Form/serverside-form/page.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7191781" vertical-offset="0" max-vertical-offset="1500">
@@ -606,11 +598,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36952713" vertical-offset="914" max-vertical-offset="3135">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="3180">
+          <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73555166" vertical-offset="0" max-vertical-offset="765">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
