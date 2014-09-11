@@ -14,33 +14,6 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "Salary Info"
         print p.title
 
-
-
-        if self.request.GET:
-            #stores info that user submits in form
-            name = self.request.GET['name']
-            hr_worked = self.request.GET['hr_worked']
-            hr = self.request.GET['hourly']
-            an = self.request.GET['annual']
-            net = self.request.GET['net_pay']
-
-
-            #displays function (displays info)
-            self.response.write(p.page_header + p.page_body + name + hr_worked + hr + an + net + p.page_close) #writes to our browser page
-            #if no info, display form
-        else:
-            #displays original form
-            self.response.write(p.page_header + p.page_body + p.page_close)
-
-
-
-
-
-
-
-
-
-
 #create an instance of my Class Salary
         #van's salary
         self.van = Salary() #instance of my object
@@ -68,13 +41,7 @@ class MainHandler(webapp2.RequestHandler):
         self.lily.monthly = 4160
         self.lily.annually = 54080
         self.lily.calc_total()
-        #self.response.write("<br /> Lily's weekly earning <br /> $" + str(lily.earn_weekly))
-        #self.response.write("<br /> Lily's monthly earning <br /> $" + str(lily.earn_month))
-        #self.response.write("<br />Lily's annual earning <br /> $" + str(lily.earn_annual))
-        #self.response.write("<br /> Lily's federal income <br /> $" + str(lily.federal_income))
-        #self.response.write("<br /> Lily's pension <br /> $" + str(lily.pension_plan))
-        #self.response.write("<br /> Lily's deductions <br /> $" + str(lily.deductions))
-        #self.response.write("<br />Lily's Net Pay <br /> $" + str(lily.net_pay))
+
 
         #adriana's salary
         self.adriana = Salary() #instance of my object
@@ -85,13 +52,7 @@ class MainHandler(webapp2.RequestHandler):
         self.adriana.monthly = 3466
         self.adriana.annually = 41600
         self.adriana.calc_total()
-        #self.response.write("<br /> Adriana's weekly earning <br /> $" + str(adriana.earn_weekly))
-        #self.response.write("<br /> Adriana's monthly earning <br /> $" + str(adriana.earn_month))
-        #self.response.write("<br />Adriana's annual earning <br /> $" + str(adriana.earn_annual))
-        #self.response.write("<br /> Adriana's federal income <br /> $" + str(adriana.federal_income))
-        #self.response.write("<br /> Adriana's pension <br /> $" + str(adriana.pension_plan))
-        #self.response.write("<br /> Adriana's deductions <br /> $" + str(adriana.deductions))
-        #self.response.write("<br />Adriana's Net Pay <br /> $" + str(adriana.net_pay))
+
 
 
         #alexandra's salary
@@ -103,13 +64,34 @@ class MainHandler(webapp2.RequestHandler):
         self.alexandra.monthly = 2496
         self.alexandra.annually = 33280
         self.alexandra.calc_total()
-        #self.response.write("<br /> Alexandra's weekly earning <br /> $" + str(alexandra.earn_weekly))
-        #self.response.write("<br /> Alexandra's monthly earning <br /> $" + str(alexandra.earn_month))
-        #self.response.write("<br />Alexandra's annual earning <br /> $" + str(alexandra.earn_annual))
-        #self.response.write("<br /> Alexandra's federal income <br /> $" + str(alexandra.federal_income))
-        #self.response.write("<br /> Alexandra's pension <br /> $" + str(alexandra.pension_plan))
-        #self.response.write("<br /> Alexandra's deductions <br /> $" + str(alexandra.deductions))
-        #self.response.write("<br />Alexandra's Net Pay <br /> $" + str(alexandra.net_pay))
+
+
+
+        if self.request.GET:
+            #stores info that user submits in form
+            name = self.request.GET['name']
+            hr_worked = self.request.GET['hr_worked']
+            hr = self.request.GET['hourly']
+            an = self.request.GET['annual']
+            net = self.request.GET['net_pay']
+
+
+            #displays function (displays info)
+            self.response.write(p.page_header + p.page_body + name + hr_worked + hr + an + net + p.page_close) #writes to our browser page
+            #if no info, display form
+        else:
+            #displays original form
+            self.response.write(p.page_header + p.page_body + p.page_close)
+
+
+
+
+
+
+
+
+
+
 
 
 
