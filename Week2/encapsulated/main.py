@@ -66,7 +66,15 @@ class MainHandler(webapp2.RequestHandler):
         self.alexandra.calc_total()
 
 
+        #making array for ppl's salary link; when link is clicked info will display
+        ppl = [self.van, self.lily, self.adriana, self.alexandra]
+        print ppl
 
+
+
+
+
+'''
         if self.request.GET:
             #stores info that user submits in form
             name = self.request.GET['name']
@@ -83,7 +91,7 @@ class MainHandler(webapp2.RequestHandler):
             #displays original form
             self.response.write(p.page_header + p.page_body + p.page_close)
 
-
+'''
 
 
 
