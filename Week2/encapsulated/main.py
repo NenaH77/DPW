@@ -18,11 +18,14 @@ class MainHandler(webapp2.RequestHandler):
         van.weekly = 2400
         van.monthly = 9600
         van.annually = 124800
-        van.calc_gross_total()
-        self.response.write("<br /> Van's weekly earning $" + str(van.earn_weekly))
-        self.response.write("<br /> Van's monthly earning $" + str(van.earn_month))
-        self.response.write("<br /> Van's annual earning $" + str(van.earn_annual))
-        self.response.write("<br /> Van's Net Pay $" + str(van.net_pay))
+        van.calc_total()
+        self.response.write("<br /> Van's weekly earning <br /> $" + str(van.earn_weekly))
+        self.response.write("<br /> Van's monthly earning <br /> $" + str(van.earn_month))
+        self.response.write("<br /> Van's annual earning <br /> $" + str(van.earn_annual))
+        self.response.write("<br /> Van's federal income <br /> $" + str(van.federal_income))
+        self.response.write("<br /> Van's pension <br /> $" + str(van.pension_plan))
+        self.response.write("<br /> Van's deductions <br /> $" + str(van.deductions))
+        self.response.write("<br /> Van's Net Pay <br /> $" + str(van.net_pay))
 
         #lily's salary
         lily = Salary() #instance of my object
@@ -31,27 +34,63 @@ class MainHandler(webapp2.RequestHandler):
         lily.weekly = 1040
         lily.monthly = 4160
         lily.annually = 54080
-        lily.calc_gross_total()
-        self.response.write("<br /> Lily's weekly earning $" + str(lily.earn_weekly))
-        self.response.write("<br /> Lily's monthly earning $" + str(lily.earn_month))
-        self.response.write("<br />Lily's annual earning $" + str(lily.earn_annual))
-        self.response.write("<br />Lily's Net Pay $" + str(lily.net_pay))
+        lily.calc_total()
+        self.response.write("<br /> Lily's weekly earning <br /> $" + str(lily.earn_weekly))
+        self.response.write("<br /> Lily's monthly earning <br /> $" + str(lily.earn_month))
+        self.response.write("<br />Lily's annual earning <br /> $" + str(lily.earn_annual))
+        self.response.write("<br /> Lily's federal income <br /> $" + str(lily.federal_income))
+        self.response.write("<br /> Lily's pension <br /> $" + str(lily.pension_plan))
+        self.response.write("<br /> Lily's deductions <br /> $" + str(lily.deductions))
+        self.response.write("<br />Lily's Net Pay <br /> $" + str(lily.net_pay))
+
+        #adriana's salary
+        adriana = Salary() #instance of my object
+        adriana.hr_worked = 20
+        adriana.hourly = 16
+        adriana.weekly = 320
+        adriana.monthly = 1386
+        adriana.annually = 33280
+        adriana.calc_total()
+        self.response.write("<br /> Adriana's weekly earning <br /> $" + str(adriana.earn_weekly))
+        self.response.write("<br /> Adriana's monthly earning <br /> $" + str(adriana.earn_month))
+        self.response.write("<br />Adriana's annual earning <br /> $" + str(adriana.earn_annual))
+        self.response.write("<br /> Adriana's federal income <br /> $" + str(adriana.federal_income))
+        self.response.write("<br /> Adriana's pension <br /> $" + str(adriana.pension_plan))
+        self.response.write("<br /> Adriana's deductions <br /> $" + str(adriana.deductions))
+        self.response.write("<br />Adriana's Net Pay <br /> $" + str(adriana.net_pay))
+
+
+        #alexandra's salary
+        lily = Salary() #instance of my object
+        lily.hr_worked = 40
+        lily.hourly = 26
+        lily.weekly = 1040
+        lily.monthly = 4160
+        lily.annually = 54080
+        lily.calc_total()
+        self.response.write("<br /> Lily's weekly earning <br /> $" + str(lily.earn_weekly))
+        self.response.write("<br /> Lily's monthly earning <br /> $" + str(lily.earn_month))
+        self.response.write("<br />Lily's annual earning <br /> $" + str(lily.earn_annual))
+        self.response.write("<br /> Lily's federal income <br /> $" + str(lily.federal_income))
+        self.response.write("<br /> Lily's pension <br /> $" + str(lily.pension_plan))
+        self.response.write("<br /> Lily's deductions <br /> $" + str(lily.deductions))
+        self.response.write("<br />Lily's Net Pay <br /> $" + str(lily.net_pay))
 
 class Salary(object):
     def __init__(self):
-       self.hr_worked = 0 #public
+       self.hr_worked = 0 #public no underscores
        self.hourly = 0
        self.weekly = 0
        self.monthly = 0
        self.annually = 0
-       self.__earn_weekly = 0
-       self.__earn_month = 0 #private
-       self.__earn_annual = 0 #private
-       self.__federal_income = 0 #private
-       self.__pension_plan = 0 #private
-       self.__medical_ins = 0 #private
-       self.__deductions = 0 #private
-       self.__net_pay = 0 #private
+       self.__earn_weekly = 0 #private 2underscores
+       self.__earn_month = 0
+       self.__earn_annual = 0
+       self.__federal_income = 0
+       self.__pension_plan = 0
+       self.__medical_ins = 0
+       self.__deductions = 0
+       self.__net_pay = 0
 
 
     #weekly pay
@@ -65,8 +104,8 @@ class Salary(object):
 
     #monthly pay
     @property #getters
-    def earn_month(self): #defining my monthly function
-        return self.__earn_month #getters are always returned
+    def earn_month(self):
+        return self.__earn_month
 
     @earn_month.setter #setter
     def earn_month(self, new_earn_month):
@@ -74,8 +113,8 @@ class Salary(object):
 
     #annual pay
     @property #getters
-    def earn_annual(self): #defining my annual function
-        return self.__earn_annual #getters are always returned
+    def earn_annual(self):
+        return self.__earn_annual
 
     @earn_annual.setter #setter
     def earn_annual(self, new_earn_annual):
@@ -100,15 +139,6 @@ class Salary(object):
     def pension_plan(self, new_pension_plan):
         self.__pension_plan = new_pension_plan
 
-    #medical ins
-    @property
-    def medical_ins(self):
-        return self.__medical_ins
-
-    @medical_ins.setter
-    def medical_ins(self, new_medical_ins):
-        self.__medical_ins = new_medical_ins
-
     #deductions
     @property
     def deductions(self):
@@ -127,32 +157,16 @@ class Salary(object):
     def net_pay(self, new_net_pay):
         self.__net_pay = new_net_pay
 
-    # gross total
-    def calc_gross_total(self): #calculate earnings
+    #total
+    def calc_total(self): #calculate earnings
         self.__earn_weekly = (self.hr_worked * self.hourly)
         self.__earn_month = ((self.hourly * self.hr_worked)* 52)/ 12
         self.__earn_annual = (self.hourly * 2080)
         self.__federal_income = (self.earn_weekly * .20)
         self.__pension_plan = (self.earn_weekly * .05)
-        self.__medical_ins = (self.earn_weekly - 75)
-        self.__deductions = (self.federal_income - self.pension_plan - self.medical_ins)
+        #self.__medical_ins = (75.00)
+        self.__deductions = (self.federal_income - self.pension_plan - 75)
         self.__net_pay = (self.earn_weekly - self.deductions)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
