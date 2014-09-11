@@ -76,6 +76,51 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write("<br /> Alexandra's deductions <br /> $" + str(alexandra.deductions))
         self.response.write("<br />Alexandra's Net Pay <br /> $" + str(alexandra.net_pay))
 
+
+#html
+    page_head = '''
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Salary Calculator</title>
+            <link rel="stylesheet" type="text/css" href="css/style.css">
+		</head>
+		<body>
+    '''
+    page_body = '''
+        <div id="wrapper">
+            <header>
+            
+            </header>
+        </div>
+
+
+
+
+
+
+    page_close = '''
+    	</body>
+    </html>
+    '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Salary(object):
     def __init__(self):
        self.hr_worked = 0 #public no underscores
