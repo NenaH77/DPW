@@ -15,24 +15,27 @@ class MainHandler(webapp2.RequestHandler):
         van = Salary() #instance of my object
         van.hr_worked = 40
         van.hourly = 60
-        van.weekly =
+        van.weekly = 2400
         van.monthly = 9600
         van.annually = 124800
-        van.calc_total()
+        van.calc_gross_total()
+        self.response.write("<br /> Van's weekly earning $" + str(van.earn_weekly))
         self.response.write("<br /> Van's monthly earning $" + str(van.earn_month))
         self.response.write("<br /> Van's annual earning $" + str(van.earn_annual))
+        self.response.write("<br /> Van's Net Pay $" + str(van.net_pay))
 
         #lily's salary
         lily = Salary() #instance of my object
         lily.hr_worked = 40
         lily.hourly = 26
-        lily.weekly =
+        lily.weekly = 1040
         lily.monthly = 4160
         lily.annually = 54080
-        lily.calc_total()
+        lily.calc_gross_total()
+        self.response.write("<br /> Lily's weekly earning $" + str(lily.earn_weekly))
         self.response.write("<br /> Lily's monthly earning $" + str(lily.earn_month))
         self.response.write("<br />Lily's annual earning $" + str(lily.earn_annual))
-
+        self.response.write("<br />Lily's Net Pay $" + str(lily.net_pay))
 
 class Salary(object):
     def __init__(self):
@@ -72,11 +75,21 @@ class Salary(object):
     def earn_annual(self, new_earn_annual):
         self.__earn_annual = new_earn_annual
 
-    #total
-    def calc_total(self): #calculate earnings
+    #net pay
+    @property
+    def net_pay(self):
+        return self.__net_pay
+
+    @net_pay.setter
+    def net_pay(self, new_net_pay):
+        self.__net_pay = new_net_pay
+
+    # gross total
+    def calc_gross_total(self): #calculate earnings
         self.__earn_weekly = (self.hr_worked * self.hourly)
         self.__earn_month = ((self.hourly * self.hr_worked)* 52)/ 12
         self.__earn_annual = (self.hourly * 2080)
+        self.__net_pay = ((self.earn_weekly * .20) - (.05 * self.earn_weekly) - (75 - self.earn_weekly))
 
 
 
