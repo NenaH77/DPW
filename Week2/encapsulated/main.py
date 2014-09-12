@@ -11,13 +11,11 @@ from page import Page
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = Page()
-        p.title = "Salary Info"
-        print p.title
 
         #create an instance of my Class Salary
         #van's salary
         self.van = Salary() #instance of my object
-        self.van.name = "Van"
+        self.van.name = "Van Chow"
         self.van.hr_worked = 40
         self.van.hourly = 60
         #self.van.weekly = 2400
@@ -25,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #lily's salary
         self.lily = Salary() #instance of my object
-        self.lily.name = "Lily"
+        self.lily.name = "Lily Smith"
         self.lily.hr_worked = 40
         self.lily.hourly = 26
         #self.lily.weekly = 1040
@@ -34,7 +32,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #adriana's salary
         self.adriana = Salary() #instance of my object
-        self.adriana.name = "Adriana"
+        self.adriana.name = "Adriana Gomez"
         self.adriana.hr_worked = 40
         self.adriana.hourly = 20
         #self.adriana.weekly = 800
@@ -44,7 +42,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #alexandra's salary
         self.alexandra = Salary() #instance of my object
-        self.alexandra.name = "Alexandra"
+        self.alexandra.name = "Alexandra White"
         self.alexandra.hr_worked = 36
         self.alexandra.hourly = 16
         #self.alexandra.weekly = 576
@@ -54,43 +52,43 @@ class MainHandler(webapp2.RequestHandler):
         #making array for person's salary link; when link is clicked info will display
         person = [self.van, self.lily, self.adriana, self.alexandra]
 
-
         #writes header, body and close onto the page
         self.response.write(p.page_header + p.page_body)
 
-        #if into is received
+        #if info is received
         if self.request.GET:
-           #calls the person from page.py. example: link to <a href="?name=van">
-           salary = int(self.request.GET['salary'])
+           #this should call the person from page.py. example: link to <a href="?name=van">
+            salary = int(self.request.GET['salary'])
 
-        #gathering info on selected player
-        name = person[salary].name
-        hr_worked = person[salary].hr_worked
-        hourly = person[salary].hourly
-        earn_weekly = person[salary].earn_weekly
+            #gathering info on selected player
+            name = person[salary].name
+            hr_worked = person[salary].hr_worked
+            hourly = person[salary].hourly
+            earn_weekly = person[salary].earn_weekly
 
-        #results are displayed once person has been selected
-        result = '''
-        <div class="content">
-        <h2>{name}</h2>
-            <section class="labels">
-                <p class="info">Hours Worked:</p>
-                <p class="info">Hourly Pay:</p>
-                <p class="info">Gross Pay:</p>
-            </section>
+            #results are displayed once person has been selected
+            result = '''
+            <div class="content">
+            <h2>{name}</h2>
+                <section class="labels">
+                    <p class="info">Hours Worked:</p>
+                    <p class="info">Hourly Pay:</p>
+                    <p class="info">Gross Check:</p>
+                </section>
 
-            <section class="labels">
-                <p class="info">{hr_worked}</p>
-                <p class="info">{hourly}</p>
-                <p class="info">{earn_weekly}</p>
-            </section>
-        </div>'''
+                <section class="labels">
+                    <p class="info">{hr_worked}</p>
+                    <p class="info">{hourly}</p>
+                    <p class="info">{earn_weekly}</p>
+                </section>
+            </div>'''
 
-        #formats local variable (which is my result)
-        result = result.format(**locals())
+            #formats local variable (which is my result)
+            result = result.format(**locals())
 
-        #writes my closing page
-        self.response.write(p.page_close)
+            #writes my closing page
+            self.response.write(result)
+            self.response.write(p.page_close)
 
 
 class Salary(object):
@@ -100,15 +98,6 @@ class Salary(object):
         self.hourly = 0
         self.__earn_weekly = 0 #private 2underscores
 
-
-    #name
-    @property
-    def name(self):
-        return self.__name
-
-    @name.setter
-    def name(self, new_name):
-        self.__name = new_name
 
     #weekly pay
     @property #getters
@@ -121,8 +110,8 @@ class Salary(object):
 
     #total
     def calc_total(self): #calculate earnings
-        self.__earn_weekly = (self.hr_worked * self.hourly)
-
+        total = self.hr_worked * self.hourly
+        self.__earn_weekly = total
 
 
 
