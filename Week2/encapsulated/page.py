@@ -19,10 +19,10 @@ class Page():
         <header>
             <h1>Salary</h1>
             <ul>
-                <li><a href="?name=van" class="ppl">Van</a></li>
-                <li><a href="?name=lily" class="ppl">Lily</a></li>
-                <li><a href="?name=adriana" class="ppl">Adriana</a></li>
-                <li><a href="?name=alexandra" class="ppl">Alexandra</a></li>
+                <li><a href="?ppl=van" class="ppl">Van</a></li>
+                <li><a href="?ppl=lily" class="ppl">Lily</a></li>
+                <li><a href="?ppl=adriana" class="ppl">Adriana</a></li>
+                <li><a href="?ppl=alexandra" class="ppl">Alexandra</a></li>
             </ul>
         </header>
 

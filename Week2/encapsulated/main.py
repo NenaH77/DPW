@@ -14,23 +14,16 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "Salary Info"
         print p.title
 
-#create an instance of my Class Salary
+        #create an instance of my Class Salary
         #van's salary
         self.van = Salary() #instance of my object
         self.van.name = "Van"
         self.van.hr_worked = 40
         self.van.hourly = 60
-        #van.weekly = 2400
-        #van.monthly = 9600
-        #van.annually = 124800
+        self.van.weekly = 2400
+        self.van.monthly = 9600
+        self.van.annually = 124800
         self.van.calc_total()
-        #self.response.write("<br /> Van's weekly earning <br /> $" + str(van.earn_weekly))
-        #self.response.write("<br /> Van's monthly earning <br /> $" + str(van.earn_month))
-        #self.response.write("<br /> Van's annual earning <br /> $" + str(van.earn_annual))
-        #self.response.write("<br /> Van's federal income <br /> $" + str(van.federal_income))
-        #self.response.write("<br /> Van's pension <br /> $" + str(van.pension_plan))
-        #self.response.write("<br /> Van's deductions <br /> $" + str(van.deductions))
-        #self.response.write("<br /> Van's Net Pay <br /> $" + str(van.net_pay))
 
         #lily's salary
         self.lily = Salary() #instance of my object
@@ -66,7 +59,7 @@ class MainHandler(webapp2.RequestHandler):
         self.alexandra.calc_total()
 
 
-        #making array for ppl's salary link; when link is clicked info will display
+        #making array for person's salary link; when link is clicked info will display
         person = [self.van, self.lily, self.adriana, self.alexandra]
         print person
 
@@ -75,18 +68,18 @@ class MainHandler(webapp2.RequestHandler):
 
         #if into is received
         if self.request.GET:
-           ppl = int(self.request.GET["ppl"])
+           #calls the person from page.py. example: link to <a href="?name=van">
+           ppl = int(self.request.GET['ppl'])
+
+            #creating variables for each persons salary
+            name = person[ppl].name
+            hr_worked = person[ppl].hr_worked
+            hourly = person[ppl].hourly
+            annually = person[ppl].annually
+            net = person[ppl].net_pay
+
 
 '''
-        if self.request.GET:
-            #stores info that user submits in form
-            name = self.request.GET['name']
-            hr_worked = self.request.GET['hr_worked']
-            hr = self.request.GET['hourly']
-            an = self.request.GET['annual']
-            net = self.request.GET['net_pay']
-
-
             #displays function (displays info)
             self.response.write(p.page_header + p.page_body + name + hr_worked + hr + an + net + p.page_close) #writes to our browser page
             #if no info, display form
