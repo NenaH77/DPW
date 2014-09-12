@@ -64,7 +64,7 @@ class MainHandler(webapp2.RequestHandler):
         print person
 
         #writes header and body onto the page
-        self.response.write(p.page_header + p.page_body + p.page_close)
+        self.response.write(p.page_header + p.page_body)
 
         #if into is received
         if self.request.GET:
@@ -102,12 +102,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #writes my content
         self.response.write(result)
-
-
-
-
-
-
+        self.response.write(p.page_close)
 
 
 class Salary(object):
