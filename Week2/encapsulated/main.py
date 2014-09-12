@@ -64,33 +64,44 @@ class MainHandler(webapp2.RequestHandler):
         print person
 
         #writes header and body onto the page
-        self.response.write(p.page_header + p.page_body)
+        self.response.write(p.page_header + p.page_body + p.page_close)
 
         #if into is received
         if self.request.GET:
            #calls the person from page.py. example: link to <a href="?name=van">
            ppl = int(self.request.GET['ppl'])
 
-            #creating variables for each persons salary
-            name = person[ppl].name
-            hr_worked = person[ppl].hr_worked
-            hourly = person[ppl].hourly
-            annually = person[ppl].annually
-            net = person[ppl].net_pay
+        #gathering info on selected player
+        name = person[ppl].name
+        hr_worked = person[ppl].hr_worked
+        hourly = person[ppl].hourly
+        annually = person[ppl].annually
+        net = person[ppl].net_pay
 
+        #results are displayed once person has been selected
+        result =  '''
+        <div class="content">
+        <h2>{name}</h2>
+            <section class="labels">
+                <p class="info">Hours Worked:</p>
+                <p class="info">Hourly Pay:</p>
+                <p class="info">Annual Salary:</p>
+                <p class="info">Net Pay:</p>
+            </section>
 
-'''
-            #displays function (displays info)
-            self.response.write(p.page_header + p.page_body + name + hr_worked + hr + an + net + p.page_close) #writes to our browser page
-            #if no info, display form
-        else:
-            #displays original form
-            self.response.write(p.page_header + p.page_body + p.page_close)
+            <section class="labels">
+                <p class="info">{hr_worked}</p>
+                <p class="info">{hourly}</p>
+                <p class="info">{annually}</p>
+                <p class="info">{net_pay}</p>
+            </section>
+        </div>'''
 
-'''
+        #formats local variable (which is my result)
+        result = result.format(**locals())
 
-
-
+        #writes my content
+        self.response.write(result)
 
 
 

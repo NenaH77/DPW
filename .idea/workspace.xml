@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week2/encapsulated/main.py" afterPath="$PROJECT_DIR$/Week2/encapsulated/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week2/encapsulated/page.py" afterPath="$PROJECT_DIR$/Week2/encapsulated/page.py" />
     </list>
     <ignored path="DPW.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.709282" vertical-offset="810" max-vertical-offset="3075">
-              <caret line="81" column="3" selection-start-line="81" selection-start-column="3" selection-end-line="81" selection-end-column="3" />
+            <state vertical-scroll-proportion="-1.0034246" vertical-offset="2656" max-vertical-offset="3240">
+              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -607,8 +606,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.709282" vertical-offset="810" max-vertical-offset="3075">
-          <caret line="81" column="3" selection-start-line="81" selection-start-column="3" selection-end-line="81" selection-end-column="3" />
+        <state vertical-scroll-proportion="-1.0034246" vertical-offset="2656" max-vertical-offset="3240">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>
