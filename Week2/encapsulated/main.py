@@ -107,7 +107,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class Salary(object):
     def __init__(self):
-       self.name = " "
+       self.__name = " "
        self.hr_worked = 0 #public no underscores
        self.hourly = 0
        self.weekly = 0
@@ -122,6 +122,15 @@ class Salary(object):
        self.__deductions = 0
        self.__net_pay = 0
 
+
+    #name
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, new_name):
+        self.__name = new_name
 
     #weekly pay
     @property #getters
