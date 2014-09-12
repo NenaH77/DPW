@@ -61,22 +61,22 @@ class MainHandler(webapp2.RequestHandler):
 
         #making array for person's salary link; when link is clicked info will display
         person = [self.van, self.lily, self.adriana, self.alexandra]
-        print person
 
-        #writes header and body onto the page
-        self.response.write(p.page_header + p.page_body)
+
+        #writes header, body and close onto the page
+        self.response.write(p.page_header + p.page_body + p.page_close)
 
         #if into is received
         if self.request.GET:
            #calls the person from page.py. example: link to <a href="?name=van">
-           ppl = int(self.request.GET['ppl'])
+           salary = int(self.request.GET['salary'])
 
         #gathering info on selected player
-        name = person[ppl].name
-        hr_worked = person[ppl].hr_worked
-        hourly = person[ppl].hourly
-        annually = person[ppl].annually
-        net = person[ppl].net_pay
+        name = person[salary].name
+        hr_worked = person[salary].hr_worked
+        hourly = person[salary].hourly
+        annually = person[salary].annually
+        net = person[salary].net_pay
 
         #results are displayed once person has been selected
         result =  '''
@@ -101,27 +101,24 @@ class MainHandler(webapp2.RequestHandler):
         result = result.format(**locals())
 
         #writes my content
-        self.response.write(result)
-        self.response.write(p.page_close)
+
 
 
 class Salary(object):
     def __init__(self):
-       self.__name = " "
-       self.hr_worked = 0 #public no underscores
-       self.hourly = 0
-       self.weekly = 0
-       self.monthly = 0
-       self.annually = 0
-       self.__earn_weekly = 0 #private 2underscores
-       self.__earn_month = 0
-       self.__earn_annual = 0
-       self.__federal_income = 0
-       self.__pension_plan = 0
-       self.__medical_ins = 0
-       self.__deductions = 0
-       self.__net_pay = 0
-
+        self.name = ""
+        self.hr_worked = 0 #public no underscores
+        self.hourly = 0
+        self.annually = 0
+        self.monthly = 0
+        self.__earn_weekly = 0 #private 2underscores
+        self.__earn_month = 0
+        self.__earn_annual = 0
+        self.__federal_income = 0
+        self.__pension_plan = 0
+        self.__medical_ins = 0
+        self.__deductions = 0
+        self.__net_pay = 0
 
     #name
     @property
