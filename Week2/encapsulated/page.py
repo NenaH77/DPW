@@ -19,10 +19,10 @@ class Page():
         <header>
             <h1>Salary</h1>
             <ul>
-                <li><a href="?ppl=van" class="ppl">Van</a></li>
-                <li><a href="?ppl=lily" class="ppl">Lily</a></li>
-                <li><a href="?ppl=adriana" class="ppl">Adriana</a></li>
-                <li><a href="?ppl=alexandra" class="ppl">Alexandra</a></li>
+                <li><a href="?salary=van" class="ppl">Van</a></li>
+                <li><a href="?salary=lily" class="ppl">Lily</a></li>
+                <li><a href="?salary=adriana" class="ppl">Adriana</a></li>
+                <li><a href="?salary=alexandra" class="ppl">Alexandra</a></li>
             </ul>
         </header>
 
@@ -35,12 +35,12 @@ class Page():
 </html>
 '''
 
-#function that will open contents
-def page_header(self):
-    return self.page_header
+    #function that will open contents
+    def page_header(self):
+        return self.page_header
 
-def page_body(self):
-    return self.page_body
+    def page_body(self):
+        return self.page_body
 
-def page_close(self):
-    return self.page_close
+    def page_close(self):
+        return self.page_close

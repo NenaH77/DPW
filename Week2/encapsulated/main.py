@@ -18,7 +18,7 @@ class MainHandler(webapp2.RequestHandler):
         self.van.name = "Van Chow"
         self.van.hr_worked = 40
         self.van.hourly = 60
-        #self.van.weekly = 2400
+        self.van.earn_weekly = 2400
         self.van.calc_total()
 
         #lily's salary
@@ -26,7 +26,7 @@ class MainHandler(webapp2.RequestHandler):
         self.lily.name = "Lily Smith"
         self.lily.hr_worked = 40
         self.lily.hourly = 26
-        #self.lily.weekly = 1040
+        self.lily.earn_weekly = 1040
         self.lily.calc_total()
 
 
@@ -35,7 +35,7 @@ class MainHandler(webapp2.RequestHandler):
         self.adriana.name = "Adriana Gomez"
         self.adriana.hr_worked = 40
         self.adriana.hourly = 20
-        #self.adriana.weekly = 800
+        self.adriana.earn_weekly = 800
         self.adriana.calc_total()
 
 
@@ -45,12 +45,14 @@ class MainHandler(webapp2.RequestHandler):
         self.alexandra.name = "Alexandra White"
         self.alexandra.hr_worked = 36
         self.alexandra.hourly = 16
-        #self.alexandra.weekly = 576
+        self.alexandra.earn_weekly = 576
         self.alexandra.calc_total()
+        print "This is working" + str(self.alexandra.earn_weekly)
 
 
         #making array for person's salary link; when link is clicked info will display
         person = [self.van, self.lily, self.adriana, self.alexandra]
+        print person
 
         #writes header, body and close onto the page
         self.response.write(p.page_header + p.page_body)
@@ -79,40 +81,45 @@ class MainHandler(webapp2.RequestHandler):
                 <section class="labels">
                     <p class="info">{hr_worked}</p>
                     <p class="info">{hourly}</p>
-                    <p class="info">{earn_weekly}</p>
+                    <p class="info">${earn_weekly}</p>
                 </section>
             </div>'''
 
             #formats local variable (which is my result)
             result = result.format(**locals())
 
-            #writes my closing page
+            #writes my result and closing page
             self.response.write(result)
-            self.response.write(p.page_close)
+            print result
+        self.response.write(p.page_close)
 
 
+#public no underscores
+#private 2underscores
 class Salary(object):
     def __init__(self):
         self.name = ""
-        self.hr_worked = 0 #public no underscores
+        self.hr_worked = 0
         self.hourly = 0
-        self.__earn_weekly = 0 #private 2underscores
+        self.__earn_weekly = 0
 
 
     #weekly pay
     @property #getters
-    def earn_weekly(self): #defining my weekly function
-        return self.__earn_weekly #getters are always returned
+    #defining my weekly function
+    def earn_weekly(self):
+        #getters are always returned
+        return self.__earn_weekly
 
     @earn_weekly.setter #setter
     def earn_weekly(self, new_earn_weekly):
         self.__earn_weekly = new_earn_weekly
 
     #total
-    def calc_total(self): #calculate earnings
+    #calculate earnings
+    def calc_total(self):
         total = self.hr_worked * self.hourly
         self.__earn_weekly = total
-
 
 
 app = webapp2.WSGIApplication([
