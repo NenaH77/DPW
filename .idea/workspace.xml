@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week2/encapsulated/page.py" afterPath="$PROJECT_DIR$/Week2/encapsulated/page.py" />
-    </list>
+    <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="" />
     <ignored path="DPW.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1995">
-              <caret line="62" column="18" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.7705479" vertical-offset="765" max-vertical-offset="1995">
+              <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -37,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6164383" vertical-offset="0" max-vertical-offset="765">
-              <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -597,21 +595,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
+    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1995">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="18" />
-          <folding>
-            <element signature="e#96#110#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/page.py">
+    <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6164383" vertical-offset="0" max-vertical-offset="765">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding />
+        <state vertical-scroll-proportion="0.7705479" vertical-offset="765" max-vertical-offset="1995">
+          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding>
+            <element signature="e#96#110#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
