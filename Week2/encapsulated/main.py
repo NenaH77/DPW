@@ -75,6 +75,7 @@ class MainHandler(webapp2.RequestHandler):
             hr_worked = person[salary].hr_worked
             hourly = person[salary].hourly
             earn_weekly = person[salary].earn_weekly
+            deduction = person[salary].deductions
             net = person[salary].net_pay
             month = person[salary].earn_month
             yr = person[salary].earn_annual
@@ -85,12 +86,13 @@ class MainHandler(webapp2.RequestHandler):
             <div class="content">
             <h2>{name}</h2>
                 <section class="labels">
-                    <p class="info">Hours Worked: {hr_worked}</p>
-                    <p class="info">Hourly Pay: {hourly}</p>
-                    <p class="info">Gross Income: ${earn_weekly}</p>
-                    <p class="info">Net Pay: ${net}</p>
-                    <p class="info">Monthly Income: ${month}</p>
-                    <p class="info">Annual Income: ${yr}</p>
+                    <p class="info"><strong>Hours Worked:</strong> {hr_worked}</p>
+                    <p class="info"><strong>Hourly Pay:</strong> {hourly}</p>
+                    <p class="info"><strong>Gross Income:</strong> ${earn_weekly}</p>
+                    <p class="info"><strong>Deduction:</strong> ${deduction}</p>
+                    <p class="info"><strong>Net Pay:</strong> ${net}</p>
+                    <p class="info"><strong>Monthly Income:</strong> ${month}</p>
+                    <p class="info"><strong>Annual Income:</strong> ${yr}</p>
                 </section>
             </div>'''
 
@@ -202,7 +204,15 @@ class Salary(object):
         annual = self.hourly * 2080
         self.__earn_annual = annual
 
-        deduction = self.federal_income - self.pension_plan - 75
+        federal = self.earn_weekly * .20
+        self.__federal_income = federal
+
+        pension = self.earn_weekly * .05
+        self.__pension_plan = pension
+
+        #self.__medical_ins = (75.00)
+
+        deduction = (self.federal_income + self.pension_plan) + 75
         self.__deductions = deduction
 
         total = self.earn_weekly - self.deductions
