@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="" />
+    <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week2/encapsulated/main.py" afterPath="$PROJECT_DIR$/Week2/encapsulated/main.py" />
+    </list>
     <ignored path="DPW.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +28,8 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7705479" vertical-offset="765" max-vertical-offset="1995">
-              <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.79452056" vertical-offset="2431" max-vertical-offset="3015">
+              <caret line="193" column="22" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -77,8 +79,8 @@
         <option value="$PROJECT_DIR$/Week2/classes-getters-setters/pages.py" />
         <option value="$PROJECT_DIR$/Week2/classes-getters-setters/main.py" />
         <option value="$PROJECT_DIR$/Week2/getters-setters/main.py" />
-        <option value="$PROJECT_DIR$/Week2/encapsulated/main.py" />
         <option value="$PROJECT_DIR$/Week2/encapsulated/page.py" />
+        <option value="$PROJECT_DIR$/Week2/encapsulated/main.py" />
       </list>
     </option>
   </component>
@@ -605,8 +607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week2/encapsulated/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7705479" vertical-offset="765" max-vertical-offset="1995">
-          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.79452056" vertical-offset="2431" max-vertical-offset="3015">
+          <caret line="193" column="22" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>
