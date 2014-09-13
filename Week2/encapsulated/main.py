@@ -19,6 +19,8 @@ class MainHandler(webapp2.RequestHandler):
         self.van.hr_worked = 40
         self.van.hourly = 60
         self.van.earn_weekly = 2400
+        self.van.earn_month = 9600
+        self.van.earn_annual = 124800
         self.van.calc_total()
 
         #lily's salary
@@ -27,6 +29,8 @@ class MainHandler(webapp2.RequestHandler):
         self.lily.hr_worked = 40
         self.lily.hourly = 26
         self.lily.earn_weekly = 1040
+        self.lily.earn_month = 4160
+        self.lily.earn_annual = 54080
         self.lily.calc_total()
 
 
@@ -36,6 +40,8 @@ class MainHandler(webapp2.RequestHandler):
         self.adriana.hr_worked = 40
         self.adriana.hourly = 20
         self.adriana.earn_weekly = 800
+        self.adriana.earn_month = 3466
+        self.adriana.earn_annual = 41600
         self.adriana.calc_total()
 
 
@@ -46,6 +52,8 @@ class MainHandler(webapp2.RequestHandler):
         self.alexandra.hr_worked = 36
         self.alexandra.hourly = 16
         self.alexandra.earn_weekly = 576
+        self.alexandra.earn_month = 2496
+        self.alexandra.earn_annual = 33280
         self.alexandra.calc_total()
 
 
@@ -68,6 +76,9 @@ class MainHandler(webapp2.RequestHandler):
             hourly = person[salary].hourly
             earn_weekly = person[salary].earn_weekly
             net = person[salary].net_pay
+            month = person[salary].earn_month
+            yr = person[salary].earn_annual
+
 
             #results are displayed once person has been selected
             result = '''
@@ -78,6 +89,8 @@ class MainHandler(webapp2.RequestHandler):
                     <p class="info">Hourly Pay: {hourly}</p>
                     <p class="info">Gross Income: ${earn_weekly}</p>
                     <p class="info">Net Pay: ${net}</p>
+                    <p class="info">Monthly Income: ${month}</p>
+                    <p class="info">Annual Income: ${yr}</p>
                 </section>
             </div>'''
 
@@ -182,6 +195,12 @@ class Salary(object):
     def calc_total(self):
         gross = self.hr_worked * self.hourly
         self.__earn_weekly = gross
+
+        month = ((self.hourly * self.hr_worked)* 52)/ 12
+        self.__earn_month = month
+
+        annual = self.hourly * 2080
+        self.__earn_annual = annual
 
         deduction = self.federal_income - self.pension_plan - 75
         self.__deductions = deduction
