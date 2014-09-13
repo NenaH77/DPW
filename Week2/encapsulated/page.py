@@ -18,12 +18,12 @@ class Page():
     <div id="wrapper">
         <header>
             <h1>Salary</h1>
-            <ul>
-                <li><a href="?salary=0" class="salary">Van</li>
-                <li><a href="?salary=1" class="salary">Lily</a></li>
-                <li><a href="?salary=2" class="salary">Adriana</a></li>
-                <li><a href="?salary=3" class="salary">Alexandra</a></li>
-            </ul>
+            <div class="ppl">
+                <a href="?salary=0" class="salary"><input type="submit" value="Van">
+                <a href="?salary=1" class="salary"><input type="submit" value="Lily">
+                <a href="?salary=2" class="salary"><input type="submit" value="Adriana">
+                <a href="?salary=3" class="salary"><input type="submit" value="Alexandra">
+            </div>
         </header>
 
     </div>
