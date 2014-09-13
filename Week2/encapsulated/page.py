@@ -8,24 +8,22 @@ class Page():
 <html>
     <head>
         <title>Salary Calculator</title>
-        <link href = "css/main.css" rel="stylesheet" type="text/css" />
-        <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+        <link href = "css/style.css" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Corben' rel='stylesheet' type='text/css'>
     </head>
-    <body> '''
+    <body>'''
 
 #HTML body
         self.page_body = '''
     <div id="wrapper">
         <header>
             <h1>Salary</h1>
-            <ul>
+            <ul class="display">
                 <li><a href="?salary=0" class="salary">Van</li>
                 <li><a href="?salary=1" class="salary">Lily</li>
                 <li><a href="?salary=2" class="salary">Adriana</li>
                 <li><a href="?salary=3" class="salary">Alexandra</li>
             </ul>
-        </header>
-
     </div>
 '''
 #HTML closing
