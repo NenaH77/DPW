@@ -16,22 +16,22 @@ class Page():
 #HTML body
         self.page_body = '''
     <div id="wrapper">
-        <header>
-            <h1>Salary</h1>
-            <ul class="display">
-                <li><a href="?salary=0" class="salary">Van</li>
-                <li><a href="?salary=1" class="salary">Lily</li>
-                <li><a href="?salary=2" class="salary">Adriana</li>
-                <li><a href="?salary=3" class="salary">Alexandra</li>
-            </ul>
+    <header>
+        <h1>Salary</h1>
+        <ul class="display">
+            <li><a href="?salary=0" class="salary">Van</li>
+            <li><a href="?salary=1" class="salary">Lily</li>
+            <li><a href="?salary=2" class="salary">Adriana</li>
+            <li><a href="?salary=3" class="salary">Alexandra</li>
+        </ul>
     </div>
 '''
 #HTML closing
         self.page_close = '''
     </body>
-    <footer Encapsulation-Calculator | Angelica M. Dinh</footer>
+    <footer> Encapsulation-Calculator | Angelica M. Dinh</footer>
 </html>
-'''
+    '''
 
     #function that will open contents
     def page_header(self):

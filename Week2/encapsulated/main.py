@@ -15,7 +15,7 @@ class MainHandler(webapp2.RequestHandler):
         #create an instance of my Class Salary
         #van's salary
         self.van = Salary() #instance of my object
-        self.van.name = "Van Chow"
+        self.van.name = "Van Lee"
         self.van.hr_worked = 40
         self.van.hourly = 60
         self.van.earn_weekly = 2400
@@ -87,7 +87,7 @@ class MainHandler(webapp2.RequestHandler):
             <h2>{name}</h2>
                 <section class="labels">
                     <p class="info"><strong>Hours Worked:</strong> {hr_worked}</p>
-                    <p class="info"><strong>Hourly Pay:</strong> {hourly}</p>
+                    <p class="info"><strong>Hourly Pay:</strong> ${hourly}</p>
                     <p class="info"><strong>Gross Income:</strong> ${earn_weekly}</p>
                     <p class="info"><strong>Deduction:</strong> ${deduction}</p>
                     <p class="info"><strong>Net Pay:</strong> ${net}</p>
@@ -101,7 +101,7 @@ class MainHandler(webapp2.RequestHandler):
 
             #writes my result and closing page
             self.response.write(result)
-            print result
+
         self.response.write(p.page_close)
 
 
