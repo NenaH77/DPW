@@ -58,19 +58,19 @@ class MainHandler(webapp2.RequestHandler):
 
 
 
-        #making array for person's salary link; when link is clicked info will display
+        #need to make an array for my people's salary; when link is clicked info will display
         person = [self.van, self.lily, self.adriana, self.alexandra]
         print person
 
-        #writes header, body and close onto the page
+        #writes header & body onto the page *FYI - if I add p.page_close here, the footer will display above my results
         self.response.write(p.page_header + p.page_body)
 
-        #if info is received
+        #the if information has been received
         if self.request.GET:
            #this should call the person from page.py. example: link to <a href="?name=van">
             salary = int(self.request.GET['salary'])
 
-            #gathering info on selected player
+            #this will gather the info on selected worker
             name = person[salary].name
             hr_worked = person[salary].hr_worked
             hourly = person[salary].hourly
@@ -81,7 +81,7 @@ class MainHandler(webapp2.RequestHandler):
             yr = person[salary].earn_annual
 
 
-            #results are displayed once person has been selected
+            #results will be displayed once person has been selected
             result = '''
             <div class="content">
             <h2>{name}</h2>
@@ -99,9 +99,8 @@ class MainHandler(webapp2.RequestHandler):
             #formats local variable (which is my result)
             result = result.format(**locals())
 
-            #writes my result and closing page
+            #writes my result and closing section
             self.response.write(result)
-
         self.response.write(p.page_close)
 
 
