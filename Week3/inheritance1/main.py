@@ -55,13 +55,13 @@ class FormPage(Page):
         self.__inputs = arr
         #sort through the mega array and create HTML inputs based on the info there
         for item in arr:
-            self._form_inputs += '<input type=" ' +item[1]+ ' "name" ' + item[0]
+            self._form_inputs += '<input type="' +item[1]+ '"name="' + item[0]
             #if there is a 3rd item.. add it in....
             try:
-                self._form_inputs += ' " placeholder=" ' + item[2]+' " />'
+                self._form_inputs += '" placeholder="' + item[2]+'" />'
             #otherwise.. end the tag
             except:
-                self._form_inputs += ' " />'
+                self._form_inputs += '" />'
 
         print self._form_inputs
 

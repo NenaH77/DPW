@@ -2,7 +2,7 @@
 name: Angelica Dinh
 date: sept 15, 2014
 class: dpw
-lab: inheritance
+lab: polymorphism
 
 '''
 import webapp2
@@ -10,7 +10,6 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        #created array
         p.inputs = [ ['first_name', 'text', 'First Name'], ['last_name', 'text', 'Last Name'], ['Submit', 'submit'] ]
         self.response.write(p.print_out_form())
 
