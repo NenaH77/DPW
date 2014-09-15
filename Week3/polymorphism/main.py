@@ -7,14 +7,16 @@ lab: polymorphism
 '''
 import webapp2
 
+#Will b used more of an exception thn a rule. Polymorphism will not b sumthig used all d time.
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
         p.inputs = [ ['first_name', 'text', 'First Name'], ['last_name', 'text', 'Last Name'], ['Submit', 'submit'] ]
-        self.response.write(p.print_out_form())
+        self.response.write(p.print_out())
 
-class Page(object):#borrowing stuff from the object class
-    def __init__(self): #constructor
+class Page(object):
+    def __init__(self):
         self._head = '''
 <!DOCTYPE HTML>
 <html>
@@ -28,13 +30,11 @@ class Page(object):#borrowing stuff from the object class
     </body>
 </html> '''
 
+    #this is being overridden below
     def print_out(self):
         return self._head + self._body + self._close
 
 
-#in order to create a class in the same doc that inherits from Page, it has to be after Page
-
-#inherits from Page This is the class that is the superclass for FormPage. FormPage gets to use any public and protected attributes and methods of the parent class
 class FormPage(Page):
     def __init__(self):
         #2 ways to write:
@@ -45,11 +45,6 @@ class FormPage(Page):
         self._form_close = '</form>'
         self.__inputs = []
         self._form_inputs = ''
-        #<input type="text" value="" name="first_name" placeholder="First Name" />
-        #['first_name', 'text', 'First Name']
-        #<input type="text" value="" name="last_name" placeholder="Last Name" />
-        #<input type="submit" value="" name="Submit" />
-
 
 
     @property
@@ -61,7 +56,6 @@ class FormPage(Page):
         #change my private inputs variable
         self.__inputs = arr
         #sort through the mega array and create HTML inputs based on the info there
-        #print arr
         for item in arr:
             #print item
             self._form_inputs += '<input type="' +item[1]+ '"name="' + item[0]
@@ -74,8 +68,9 @@ class FormPage(Page):
 
         print self._form_inputs
 
-
-    def print_out_form(self):
+#Polymorphism Alert!!! -------method overriding
+    #we are overriding the def print_out method in the parent class
+    def print_out(self):
         return self._head + self._body + self._form_open + self._form_inputs + self._form_close + self._close
 
 app = webapp2.WSGIApplication([
