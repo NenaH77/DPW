@@ -19,9 +19,11 @@ class MainHandler(webapp2.RequestHandler):
 
         if self.request.GET:
             name = self.request.GET['name']
-            url = "http://api.foxsports.com/v1/content?partnerkey=KfymW7p5W38=&pageTypes=story&enable=fulldata&disable=html" + name
+            score = self.request.GET['score']
+            person = self.request.GET['type']
+            url = "http://api.foxsports.com/v1/content?partnerkey=KfymW7p5W38=&pageTypes=story&enable=fulldata&disable=html"
 
-            print name
+
 
 
 
@@ -31,7 +33,19 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class Page(object):
-    pass
+    def __init__(self):
+        self.head = '''
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Detailed Sports</title>
+    </head>
+    <body> '''
+
+        self.body = "Sports App"
+        self.close = '''
+    </body>
+</html> '''
 
 class Sports(Page):
     pass
