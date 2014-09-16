@@ -35,8 +35,18 @@ class MainHandler(webapp2.RequestHandler):
 
             print result
 
-            #parse the XML
-            
+            #parse the XML with etree
+            xmldoc = ET.parse(result)
+            root = xmldoc.getroot()
+
+            namespace = "http://xml.weather.yahoo.com/ns/rss/1.0"
+
+            content = "<br />"
+            for i in root.iter("{"+namespace+"}forecast"):#this is like typing yweather:forecast
+                #print "here"
+
+
+
 
 class Page(object):
     def __init__(self):
