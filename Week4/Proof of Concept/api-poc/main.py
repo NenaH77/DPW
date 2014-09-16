@@ -6,7 +6,10 @@ assignment: final project: proof of concept
 
 '''
 import webapp2
-import urllib2
+import urllib2 #python classes and code needed to open url information
+from xml.dom import minidom
+
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
