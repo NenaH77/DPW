@@ -18,7 +18,8 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.print_out())
 
         #get info form the API
-        url = "http://xml.weather.yahoo.com/forecastrss?p=32819"
+        zip = self.request.GET['zip']
+        url = "http://xml.weather.yahoo.com/forecastrss?p=" + zip
 
         #assemble the request
         request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
@@ -33,7 +34,7 @@ class MainHandler(webapp2.RequestHandler):
 
         #parse the XML
         xmldoc = minidom.parse(result)
-        print xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
+        self.response.write(xmldoc.getElementsByTagName('title')[2].firstChild.nodeValue)
 
 class Page(object):
     def __init__(self):
