@@ -13,7 +13,15 @@ from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        p = Sports()
+        p.options = [['name', 'text', 'name'], ['submit', 'submit']]
+        self.response.write(p.options)
+
+class Page(object):
+    pass
+
+class Sports(Page):
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
