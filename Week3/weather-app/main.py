@@ -7,6 +7,7 @@ lab: polymorphism
 '''
 import webapp2
 import urllib2 #python classes and code needed to request info, receiving and opening
+from xml.dom import minidom
 
 #Will b used more of an exception thn a rule. Polymorphism will not b sumthig used all d time.
 
@@ -16,16 +17,23 @@ class MainHandler(webapp2.RequestHandler):
         p.inputs = [['zip', 'text', 'zip code'],['Submit', 'submit']]
         self.response.write(p.print_out())
 
-
         #get info form the API
-        url = "http://xml.weather.yahoo.com/forcastrss?p=32819"
+        url = "http://xml.weather.yahoo.com/forecastrss?p=32819"
+
         #assemble the request
         request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
 
         #use the urllib2 to create and object to get the url
         opener = urllib2.build_opener()
+
         #use the url to get a result - request info from the API
         result = opener.open(request)
+
+        print result
+
+        #parse the XML
+        xmldoc = minidom.parse(result)
+        print xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
 
 class Page(object):
     def __init__(self):
