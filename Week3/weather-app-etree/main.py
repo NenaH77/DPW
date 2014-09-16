@@ -42,8 +42,13 @@ class MainHandler(webapp2.RequestHandler):
             namespace = "http://xml.weather.yahoo.com/ns/rss/1.0"
 
             content = "<br />"
+            #content = "THIS IS WHERE MY TITLE GOES" + "<br/>"
+            #content = root[0][12][7].attrib['day'] + "<br/>"
+            content = root[0][0].text + "<br/>"#title is in an array but in the channels array (an array within an array)
             for i in root.iter("{"+namespace+"}forecast"):#this is like typing yweather:forecast
-                #print "here"
+                content += i.attrib['day'] + "---HIGH:" + i.attrib['high']
+                content += "<br />"
+            self.response.write(content)
 
 
 
