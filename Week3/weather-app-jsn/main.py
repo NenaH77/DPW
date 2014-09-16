@@ -14,7 +14,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['city', 'text', 'city'], ['county', 'text', 'country'], ['Submit', 'submit']]
+        p.inputs = [['city', 'text', 'city'], ['country', 'text', 'country'], ['Submit', 'submit']]
         self.response.write(p.print_out())
 
         if self.request.GET: #only if there is a zip variable in the url
@@ -34,10 +34,13 @@ class MainHandler(webapp2.RequestHandler):
 
             #parsing the JSON
             jsondoc = json.load(result)
+            lat = jsondoc['coord']
+            name = jsondoc['name']
+            condition = jsondoc['weather'][0]['description']
+
             self.response.write(jsondoc)
-
-
-
+            self.response.write(lat)
+            self.response.write("City Chosen: " + name +"<br/>")
 
 
 class Page(object):
