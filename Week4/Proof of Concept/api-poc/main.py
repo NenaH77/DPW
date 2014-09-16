@@ -17,11 +17,24 @@ class MainHandler(webapp2.RequestHandler):
         p.options = [['name', 'text', 'name'], ['submit', 'submit']]
         self.response.write(p.options)
 
+        if self.request.GET:
+            name = self.request.GET['name']
+            url = "http://api.foxsports.com/v1/content?partnerkey=KfymW7p5W38=&pageTypes=story&enable=fulldata&disable=html" + name
+
+            print name
+
+
+
+
+
+
+
+
 class Page(object):
     pass
 
 class Sports(Page):
-
+    pass
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
