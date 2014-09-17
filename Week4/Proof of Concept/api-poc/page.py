@@ -16,6 +16,7 @@ class Page(object):
         </div>
     </body>
 </html> '''
+        self.all = ""
 
     def open(self):
         return self.open
@@ -32,7 +33,7 @@ class Page(object):
         return self.all
 
     def update(self):
-        self.all = self.open + self._content + self._close
+        self.all = self.open + self.content + self.close
         self.all = self.all.format(**locals())
 
 
@@ -58,3 +59,11 @@ class Movie(Page):
 
     def body(self):
         return self.body
+
+    def update(self):
+        self.all = self.open + self.form + self.body + self.content + self.close
+        self.all = self.all.format(**locals())
+
+    def total(self):
+        self.all = self.open + self.body + self.close
+        self.all = self.all.format(**locals())
