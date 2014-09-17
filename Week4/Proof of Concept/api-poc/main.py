@@ -46,8 +46,10 @@ class MovieInfo(object):
         #parse it
         xmldoc = minidom.parse(result)
 
-        self.response.write(xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue)
 
+
+        self.response.write(xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue)
+        self.response.write(xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
