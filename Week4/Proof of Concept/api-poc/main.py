@@ -13,17 +13,14 @@ from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        p = Sports()
-        p.options = [['name', 'text', 'name'], ['submit', 'submit']]
+        p = Movies()
+        p.options = [['title', 'text', 'Toy Story'], ['name', 'text', 'Tom Hanks' ], ['characters', 'text', 'Woody' ], ['submit', 'submit']]
         self.response.write(p.options)
 
         if self.request.GET:
-            name = self.request.GET['name']
-            score = self.request.GET['score']
-            person = self.request.GET['type']
-            url = "http://api.foxsports.com/v1/content?partnerkey=KfymW7p5W38=&pageTypes=story&enable=fulldata&disable=html"
-
-
+            title = self.request.GET['title']
+            actor = self.request.GET['name']
+            url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]"
 
 
 
@@ -38,17 +35,19 @@ class Page(object):
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Detailed Sports</title>
+        <title>Detailed Movies</title>
     </head>
     <body> '''
 
-        self.body = "Sports App"
+        self.body = "Movies App"
         self.close = '''
     </body>
 </html> '''
 
 class Sports(Page):
-    pass
+    def __init__(self):
+        super(Sports, self).__init__()
+        self._sport_open = ''
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
