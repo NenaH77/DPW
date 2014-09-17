@@ -16,6 +16,8 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = Page()
 
+        self.response.write(p.open + p.content + p.close)#test to see if I'm getting errors
+
         if self.request.GET:
             #get info from the API
             title = self.request.GET['title']
@@ -24,8 +26,6 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class MovieInfo(object):
-    #adding my 3 steps
-
     def __init__(self):
         self.url = "http://api.rottentomatoes.com/api/public/v1.0/" #url from where the information will be requested
         self.params = ".json?apikey=3wgzeuyj3ttnqnjbfr5xgafx"
@@ -35,6 +35,9 @@ class MovieInfo(object):
 
 
         self.result = self.opener.open(self.request)#we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable
+
+
+
 
 
 app = webapp2.WSGIApplication([
