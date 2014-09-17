@@ -28,6 +28,9 @@ class MainHandler(webapp2.RequestHandler):
 
 
 
+
+
+
         self.response.write(p.print_out())
 
 class MovieInfo(object):
@@ -58,6 +61,7 @@ class MovieInfo(object):
 
 
 
+
 #
 class MovieData(object):
     def __init__(self):
@@ -68,8 +72,25 @@ class MovieData(object):
         self.synopsis = ""
 
 
+class MovieView(object):
+    def __init__(self):
 
+        self.mov = MovieData()
+        self.new_content = " "
 
+    def update(self):
+
+        self.new_content = '''
+        <div class="content">
+            <p>{mv.title}</p>
+            <p>{mv.actor}<p>
+            <p>{mv.year}</p>
+<           p>{mv.mpaa_rating}</p>
+            <p>{mv.synopsis}</p>
+        </div>
+        '''
+
+        self.new_content = self.new_content.format(**locals())
 
 
 app = webapp2.WSGIApplication([
