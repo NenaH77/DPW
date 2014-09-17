@@ -19,13 +19,16 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.open + p.close) #test to see if I'm getting errors
 
         if self.request.GET:
+            #create an instance of my class MovieInfo
+            m = MovieInfo()
+
             #get info from the API
             title = self.request.GET['title']
             actor = self.request.GET['name']
-            mv = MovieInfo(title)
 
-            #create an instance of my class MovieInfo
-            m = MovieInfo()
+            m.send_info()
+
+
 
         self.response.write(p.print_out())
 
