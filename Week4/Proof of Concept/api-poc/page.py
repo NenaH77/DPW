@@ -16,3 +16,19 @@ class Page(object):
         </div>
     </body>
 </html> '''
+
+    def open(self):
+        return self.open
+
+    def content(self):
+        return self.content
+
+    def close(self):
+        return self.close
+
+
+class Movie(Page):
+    def __init__(self):
+        #calling the constructor
+        #Page.__init__()
+        super(Page, self).__init__()
