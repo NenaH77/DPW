@@ -50,6 +50,9 @@ class MovieInfo(object):
 
         self.response.write(xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue)
         self.response.write(xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue)
+        self.response.write(xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue)
+        self.response.write(xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue)
+        self.response.write(xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
