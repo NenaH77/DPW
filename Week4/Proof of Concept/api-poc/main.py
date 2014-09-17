@@ -19,12 +19,11 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.GET:
             #create an instance of my class MovieInfo
             m = MovieInfo()
-            mov=MovieView(m)
 
             #get info from the API
-            title = self.request.GET['title']
-            actor = self.request.GET['name']
+            movie = self.request.GET['movie']
 
+            #sending data and parses it with method I created
             m.send_info()
 
 
@@ -48,11 +47,11 @@ class MovieInfo(object):
 
 
 
-        self.response.write(xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue)
-        self.response.write(xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue)
-        self.response.write(xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue)
-        self.response.write(xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue)
-        self.response.write(xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue)
+        self. mv.title = xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
+        self. mv.actor =xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue
+        self. mv.year =xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue
+        self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
+        self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
