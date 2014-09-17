@@ -22,13 +22,14 @@ class MainHandler(webapp2.RequestHandler):
             zip = self.request.GET['zip']
             url = "http://xml.weather.yahoo.com/forecastrss?p=" + zip
 
-            #assemble the request
+#3 steps allow us to fetch the url; load the contents and use the contents here in our python code
+            #assemble the request [request the info from the url]
             request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
 
-            #use the urllib2 to create and object to get the url
+            #use the urllib2 to create and object to get the url [special method that allows us to open the results/response and we get to look inside the url]
             opener = urllib2.build_opener()
 
-            #use the url to get a result - request info from the API
+            #use the url to get a result - request info from the API [we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable]
             result = opener.open(request)
 
             print result

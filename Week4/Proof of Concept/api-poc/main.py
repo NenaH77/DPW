@@ -25,15 +25,16 @@ class MainHandler(webapp2.RequestHandler):
             characters = self.request.GET['characters']
 
             #url from where the information will be requested
-            url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]" + title
+            url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx"
 
-            #assemble the request
+        #3 steps allow us to fetch the url; load the contents and use the contents here in our python code
+            #requests the info from the url
             request = urllib2.Request(url)
 
-            #use the urllib2 to create and object to the url
+            #special method that allows us to open the results/response and we get to look inside the url
             opener = urllib2.build_opener()
 
-            #use the url to get a result - request info from the API
+            #we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable
             result = opener.open(request)
 
             print result
@@ -67,7 +68,7 @@ class Movie(Page):
         super(Movie, self).__init__()
         self._open = '<form method = "GET">'
         self._end = '</form>'
-        self.options = []
+        self._options = []
         self._movie_options = ''
 
     @property
@@ -86,6 +87,9 @@ class Movie(Page):
                 self._movie_options += '" />'
 
         print self._movie_options
+
+    def print_out(self):
+        return self.head + self.body + self._open + self._movie_options + self._end + self.close
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

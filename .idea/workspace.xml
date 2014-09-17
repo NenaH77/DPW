@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Week4/Proof of Concept/api-poc/page.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week3/weather-app/main.py" afterPath="$PROJECT_DIR$/Week3/weather-app/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week4/Proof of Concept/api-poc/main.py" afterPath="$PROJECT_DIR$/Week4/Proof of Concept/api-poc/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DPW.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,14 +27,14 @@
     <favorites_list name="DPW" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.39876354">
       <split-first>
         <leaf>
           <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Week3/weather-app/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.4163702" vertical-offset="1294" max-vertical-offset="1740">
-                  <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+                <state vertical-scroll-proportion="2.6388888" vertical-offset="0" max-vertical-offset="1755">
+                  <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
                   <folding>
                     <element signature="e#77#91#0" expanded="true" />
                   </folding>
@@ -53,14 +56,24 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Week4/Proof of Concept/api-poc/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5652174" vertical-offset="1059" max-vertical-offset="1470">
-                  <caret line="81" column="54" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1530">
+                  <caret line="15" column="17" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="17" />
                   <folding>
                     <element signature="e#104#118#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="page.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Week4/Proof of Concept/api-poc/page.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.63559324" vertical-offset="0" max-vertical-offset="354">
+                  <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -108,15 +121,16 @@
         <option value="$PROJECT_DIR$/Week3/weather-app-etree/main.py" />
         <option value="$PROJECT_DIR$/Week3/weather-app-json/main.py" />
         <option value="$PROJECT_DIR$/Week3/weather-app-jsn/main.py" />
-        <option value="$PROJECT_DIR$/Week3/weather-app/main.py" />
         <option value="$PROJECT_DIR$/Week4/Proof of Concept/api-poc/main.py" />
+        <option value="$PROJECT_DIR$/Week3/weather-app/main.py" />
+        <option value="$PROJECT_DIR$/Week4/Proof of Concept/api-poc/page.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="396" />
+    <option name="x" value="31" />
     <option name="y" value="22" />
-    <option name="width" value="1049" />
+    <option name="width" value="743" />
     <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -400,14 +414,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="396" y="22" width="1049" height="716" extended-state="0" />
+    <frame x="31" y="22" width="743" height="716" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17254528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.243607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30071175" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -726,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week3/weather-app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4163702" vertical-offset="1294" max-vertical-offset="1740">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        <state vertical-scroll-proportion="2.6388888" vertical-offset="0" max-vertical-offset="1755">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
           <folding>
             <element signature="e#77#91#0" expanded="true" />
           </folding>
@@ -736,11 +750,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week4/Proof of Concept/api-poc/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5652174" vertical-offset="1059" max-vertical-offset="1470">
-          <caret line="81" column="54" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1530">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="17" />
           <folding>
             <element signature="e#104#118#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Week4/Proof of Concept/api-poc/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63559324" vertical-offset="0" max-vertical-offset="354">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
