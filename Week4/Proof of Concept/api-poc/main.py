@@ -25,7 +25,7 @@ class MainHandler(webapp2.RequestHandler):
             characters = self.request.GET['characters']
 
             #url from where the information will be requested
-            url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]"
+            url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]" + title
 
             #assemble the request
             request = urllib2.Request(url)
@@ -67,8 +67,25 @@ class Movie(Page):
         super(Movie, self).__init__()
         self._open = '<form method = "GET">'
         self._end = '</form>'
-        self._inputs = []
-        self._movie_inputs = ''
+        self.options = []
+        self._movie_options = ''
+
+    @property
+    def options(self):
+        pass
+
+    @options.setter
+    def options(self, movie_array):
+        self._options = movie_array
+
+        for item in movie_array:
+            self._movie_options += '<input type="' + item[1] + '"name="' + item[0]
+            if len(item) >2:
+                self._movie_options += '"placeholder="' + item[2]+ '" />'
+            else:
+                self._movie_options += '" />'
+
+        print self._movie_options
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
