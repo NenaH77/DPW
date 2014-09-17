@@ -47,11 +47,30 @@ class MovieInfo(object):
 
 
 
+
+        #finding tags using minidom
         self. mv.title = xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
         self. mv.actor =xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue
         self. mv.year =xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue
         self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
         self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
+
+
+
+
+#
+class MovieData(object):
+    def __init__(self):
+        self.title =""
+        self.actor = ""
+        self.year = ""
+        self.mpaa_rating = ""
+        self.synopsis = ""
+
+
+
+
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
