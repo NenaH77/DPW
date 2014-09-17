@@ -20,6 +20,7 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.GET:
             title = self.request.GET['title']
             actor = self.request.GET['name']
+            characters = self.request.GET['characters']
             url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]"
 
 
@@ -44,10 +45,17 @@ class Page(object):
     </body>
 </html> '''
 
-class Sports(Page):
+    def print_out(self):
+        return self.head + self.body + self.close
+
+class Movie(Page):
     def __init__(self):
-        super(Sports, self).__init__()
-        self._sport_open = ''
+        #constructor function for the super class
+        super(Movie, self).__init__()
+        self._open = '<form method = "GET">'
+        self._end = '</form>'
+        self._inputs = []
+        self._movie_inputs = ''
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
