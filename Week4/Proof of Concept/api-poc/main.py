@@ -13,17 +13,30 @@ from xml.dom import minidom
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        p = Movies()
+        p = Movie()
         p.options = [['title', 'text', 'Toy Story'], ['name', 'text', 'Tom Hanks' ], ['characters', 'text', 'Woody' ], ['submit', 'submit']]
         self.response.write(p.options)
 
         if self.request.GET:
+            #get info from the API
+            mv = Movie()
             title = self.request.GET['title']
             actor = self.request.GET['name']
             characters = self.request.GET['characters']
+
+            #url from where the information will be requested
             url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=[3wgzeuyj3ttnqnjbfr5xgafx]"
 
+            #assemble the request
+            request = urllib2.Request(url)
 
+            #use the urllib2 to create and object to the url
+            opener = urllib2.build_opener()
+
+            #use the url to get a result - request info from the API
+            result = opener.open(request)
+
+            print result
 
 
 

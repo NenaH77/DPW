@@ -18,7 +18,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.print_out())
 
         if self.request.GET: #only if there is a zip variable in the url
-            #get info form the API
+            #get info from the API
             zip = self.request.GET['zip']
             url = "http://xml.weather.yahoo.com/forecastrss?p=" + zip
 
