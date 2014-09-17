@@ -32,3 +32,20 @@ class Movie(Page):
         #calling the constructor
         #Page.__init__()
         super(Page, self).__init__()
+
+        self.form = '''
+        <form method="GET">
+            <input type="text" name="actor" placeholder="Actor Name" required />
+            <input type="text" name="title" placeholder="Movie Title" required />
+            <button class="btn">Search</button>
+        </form>
+        '''
+
+        self.body = '''
+        <p>Here are your results</p>
+        '''
+    def form(self):
+        return self.form
+
+    def body(self):
+        return self.body
