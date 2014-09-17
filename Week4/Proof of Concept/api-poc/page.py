@@ -27,6 +27,15 @@ class Page(object):
         return self.close
 
 
+    def print_out(self):
+        self.update()
+        return self.all
+
+    def update(self):
+        self.all = self.open + self._content + self._close
+        self.all = self.all.format(**locals())
+
+
 class Movie(Page):
     def __init__(self):
         #calling the constructor
