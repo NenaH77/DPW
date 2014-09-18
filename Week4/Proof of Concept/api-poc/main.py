@@ -50,6 +50,14 @@ class MovieInfo(object):
         self.current_movie_synopsis = jsondoc["movies"][0]["synopsis"]
         self.current_movie_actor = jsondoc["movies"][0]["abridged_cast"][0]["name"]
 
+    @property
+    def movie(self):
+        return self.__movie
+
+    @movie.setter
+    def movie(self, new_movie):
+        self.__movie = new_movie
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
