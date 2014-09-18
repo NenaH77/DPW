@@ -60,6 +60,18 @@ class MovieInfo(object):
         self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
         self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
 
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, new_id):
+        self.__id = new_id
+
+
+
+
     @property
     def mv(self):
         return self.__mv
