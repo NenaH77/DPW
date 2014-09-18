@@ -31,6 +31,7 @@ class MainHandler(webapp2.RequestHandler):
             #creates my instance
             movview = MovieView()
 
+        print p.open + p.form + p.close
 
 class MovieInfo(object):
     #MovieInfo will allow me to fetch the url; load the contents and use the contents here in my python code
@@ -68,15 +69,19 @@ class MovieInfo(object):
 
 class MovieView(object):
     def __init__(self):
-
-
-
+        self.__new_content = " "
+    def update(self):
+        self.__new_content += '<h2>' + self.current_movie_title + '</h2>'
 
 
 
 class MovieData(object):
     def __init__(self):
-        pass
+        self.current_movie_title =""
+        self.current_movie_rating = ""
+        self.current_movie_critic_rating = ""
+        self.current_movie_synopsis = ""
+        self.current_movie_actor = ""
 
 
 

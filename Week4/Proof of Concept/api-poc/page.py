@@ -1,6 +1,6 @@
 __author__ = 'NenaH77'
 
-class Page(object):
+class FormPage(object):
     def __init__(self):
         self.open = '''
 <!DOCTYPE html>
