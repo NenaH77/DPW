@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
             m = MovieInfo()
 
             #get info from the API
-            id = self.request.GET['id']
+            movie = self.request.GET['movie']
 
             #sending data and parses it with method I created
             m.send_info()
@@ -40,15 +40,16 @@ class MainHandler(webapp2.RequestHandler):
 
 class MovieInfo(object):
     def __init__(self):
-        self._url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" #url from where the information will be requested
-        self._id = " "
-        self._params = "&page_limit"
-
+        self.apikey = "3wgzeuyj3ttnqnjbfr5xgafx&q="
+        self.baseUrl = "http://api.rottentomatoes.com/api/public/v1.0"
 
     def send_info(self):
-        full_url = self._url + self._id + self._params
-        request = urllib2.Request(full_url)#requests the info from the url
+        url = self.baseUrl + "/movies.json?apikey=" + self.apikey
+
+        request = urllib2.Request(url)#requests the info from the url
+
         opener = urllib2.build_opener()#special method that allows us to open the results/response and we get to look inside the url
+
         result = opener.open(request)#we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable
 
         jsondoc = json.load(result)
