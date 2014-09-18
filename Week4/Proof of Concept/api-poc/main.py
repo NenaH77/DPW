@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
             m = MovieInfo()
 
             #get info from the API
-            search = self.request.GET['search']
+            id = self.request.GET['id']
 
             #sending data and parses it with method I created
             m.send_info()
@@ -51,24 +51,12 @@ class MovieInfo(object):
         opener = urllib2.build_opener()#special method that allows us to open the results/response and we get to look inside the url
         result = opener.open(request)#we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable
 
-        #parse it
-        #xmldoc = minidom.parse(result)
-
-        #finding tags using minidom
-        #self. mv.title = xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
-        #self. mv.actor =xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue
-        #self. mv.year =xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue
-        #self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
-        #self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
-
         jsondoc = json.load(result)
         title = jsondoc['title']
         actor = jsondoc['actor']
         year = jsondoc['year']
         rating = jsondoc['mpaa_rating']
         synopsis = jsondoc['synopsis']
-
-
 
 
     @property
