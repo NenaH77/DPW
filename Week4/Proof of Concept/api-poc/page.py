@@ -14,7 +14,7 @@ class Page(object):
         #self.content = "This is my content"
         self.form = '''
         <form method="GET">
-            <input type="text" name="movie" placeholder="Movie Title" required />
+            <input type="text" name="search" placeholder="Movie Title" required />
             <button class="btn">Search</button>
         </form>
         '''

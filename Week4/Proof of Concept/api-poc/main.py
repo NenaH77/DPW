@@ -8,7 +8,8 @@ assignment: final project: proof of concept
 import webapp2
 from page import Page
 import urllib2 #python classes and code needed to open url information
-from xml.dom import minidom
+#from xml.dom import minidom
+import json
 
 
 
@@ -26,11 +27,14 @@ class MainHandler(webapp2.RequestHandler):
 
             #sending data and parses it with method I created
             m.send_info()
-
-
-
-
-
+            #creates my instance
+            pg_view = MovieView()
+            #transfers info that's in MovieInfo to MovieView
+            pg_view.mov = m.mv
+            #updates my update
+            pg_view.update()
+            #making form (in page.py) to hold new content from Movie view class
+            p.form = pg_view.new_content
 
         self.response.write(p.print_out())
 
@@ -48,17 +52,23 @@ class MovieInfo(object):
         result = opener.open(request)#we r fetching the url. in other words, we're telling it to open the url take the results and put them inside the result variable
 
         #parse it
-        xmldoc = minidom.parse(result)
-
-
-
+        #xmldoc = minidom.parse(result)
 
         #finding tags using minidom
-        self. mv.title = xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
-        self. mv.actor =xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue
-        self. mv.year =xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue
-        self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
-        self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
+        #self. mv.title = xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
+        #self. mv.actor =xmldoc.getElementsByTagName('actor')[0].firstChild.nodeValue
+        #self. mv.year =xmldoc.getElementsByTagName('year')[0].firstChild.nodeValue
+        #self. mv.mpaa_rating =xmldoc.getElementsByTagName('mpaa_rating')[0].firstChild.nodeValue
+        #self. mv.synopsis =xmldoc.getElementsByTagName('synopsis')[0].firstChild.nodeValue
+
+        jsondoc = json.load(result)
+        title = jsondoc['title']
+        actor = jsondoc['actor']
+        year = jsondoc['year']
+        rating = jsondoc['mpaa_rating']
+        synopsis = jsondoc['synopsis']
+
+
 
 
     @property
@@ -77,17 +87,17 @@ class MovieInfo(object):
         return self.__mv
 
     @property
-    def movie(self):
-        return self.__movie
+    def search(self):
+        return self.search
 
-    @movie.setter
-    def movie(self, new_movie_info):
-        self.__movie = new_movie_info
-
-
+    @search.setter
+    def search(self, new_search):
+        self.__search = new_search
 
 
-#
+
+
+
 class MovieData(object):
     def __init__(self):
         self.title =""
