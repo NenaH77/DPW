@@ -19,10 +19,17 @@ class MainHandler(webapp2.RequestHandler):
         p.inputs = [["movie", "text", "Movie Title"], ["Submit", "submit"]]
 
         if self.request.GET:
-            my_movie = self.request.GET["movie"]#passes url into MovieInfo class
-            movinfo = MovieInfo() #creates an instance of my MovieInfo class
+            #passes url into MovieInfo class
+            my_movie = self.request.GET["movie"]
+
+            #creates an instance of my MovieInfo class
+            movinfo = MovieInfo()
+
             #sending request to api method
             movinfo.apiInfo()
+
+            #creates my instance
+            movview = MovieView()
 
 
 class MovieInfo(object):
@@ -57,6 +64,20 @@ class MovieInfo(object):
     @movie.setter
     def movie(self, new_movie):
         self.__movie = new_movie
+
+
+class MovieView(object):
+    def __init__(self):
+
+
+
+
+
+
+class MovieData(object):
+    def __init__(self):
+        pass
+
 
 
 app = webapp2.WSGIApplication([
