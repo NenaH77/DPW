@@ -20,11 +20,17 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.print_out())
 
         if self.request.GET:
+            #get info from the API
             name = self.request.GET['name']
             url = "http://tinysong.com/b/" + name + "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
+
+            #request the info from the url
+            request = urllib2.Request(url)
+
+            #special method that allows us to open the results and we get to look inside the url
+            opener = urllib2.build_opener()
+
             
-
-
 
 
 class Page(object):
