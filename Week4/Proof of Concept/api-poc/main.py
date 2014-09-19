@@ -6,23 +6,19 @@ assignment: final project: proof of concept
 
 '''
 import webapp2
-from page import * #maybe changing my page name still deciding will name my import later
 import urllib2 #python classes and code needed to open url information
 import json
-
-
 
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [["name", "text", "Artist Name"], ["Submit", "submit"]]
-        self.response.write(p.print_out())
+        p.inputs = [["song", "text", "Song Name"], ["Submit", "submit"]]
 
         if self.request.GET:
             #get info from the API
-            name = self.request.GET['name']
-            url = "http://tinysong.com/b/" + name + "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
+            song = self.request.GET['song']
+            url = "http://tinysong.com/b/" + song + "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
 
             #request the info from the url
             request = urllib2.Request(url)
@@ -34,6 +30,16 @@ class MainHandler(webapp2.RequestHandler):
             result = opener.open(request)
 
             print result
+
+            #parsing the JSON
+            jsondoc = json.load(result)
+            song = jsondoc['SongName']
+            artist = jsondoc['ArtistName']
+            album = jsondoc['AlbumName']
+
+            self.reponse.write(jsondoc)
+            self.response.write(song)
+            self.response.write("Song Name:" + song)
 
 
 class Page(object):
