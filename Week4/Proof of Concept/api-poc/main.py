@@ -16,13 +16,14 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [["movie", "text", "Movie Title"], ["Submit", "submit"]]
+        p.inputs = [["name", "text", "Artist Name"], ["Submit", "submit"]]
         self.response.write(p.print_out())
 
         if self.request.GET:
-            self.request.GET['']
-            self.request.GET['']
-            url = " "
+            name = self.request.GET['name']
+            url = "http://tinysong.com/b/" + name + "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
+            
+
 
 
 
