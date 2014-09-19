@@ -2,7 +2,7 @@
 name: Angelica Dinh
 date: sept 16, 2014
 class: dpw
-assignment: final project: proof of concept
+assignment: proof of concept
 
 '''
 import webapp2
@@ -13,88 +13,93 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [["name", "text", "Song Name"], ["Submit", "submit"]]
+        p.inputs = [['song', 'text', 'Song Name'], ['Submit', 'submit']]
         self.response.write(p.print_out())
 
-        if self.request.GET:
-            #get info from the API
+        if self.request.GET: #only if there is a zip variable in the url
+            #get info form the API
             song = self.request.GET['song']
-            url = "http://tinysong.com/b/" + song + "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
+            url = "http://tinysong.com/b/" + song
+            key = "?format=json&key=d3464d3a1ab7f49b1dcb2acc520de571"
+            total_url = url + key
 
-            #request the info from the url
-            request = urllib2.Request(url)
+            #assemble the request
+            request = urllib2.Request(total_url) #we are using the class and accessing the static method in the class. We don't need to create an instance
 
-            #special method that allows us to open the results and we get to look inside the url
+            #use the urllib2 to create and object to get the url
             opener = urllib2.build_opener()
 
-            #telling it to open the url take the results and put them inside the result variable
+            #use the url to get a result - request info from the API
             result = opener.open(request)
-
-            print result
 
             #parsing the JSON
             jsondoc = json.load(result)
-            song = jsondoc['song']
-            #artist = jsondoc['ArtistName']
-            #album = jsondoc['AlbumName']
+            album = jsondoc['AlbumName']
+            cancion = jsondoc['SongName']
+            name = jsondoc['ArtistName']
+            s_url = jsondoc['Url']
 
-            self.reponse.write(jsondoc)
-            self.response.write(song)
-            self.response.write("Song Name:" + song)
+            #self.response.write(jsondoc)
+            #self.response.write(album)
+            #self.response.write("Artist Name: " + name +"<br/>")
+            self.response.write("Artist Name: " + name +"<br/>" + "Song Name: " + cancion +"<br/>" + "Album Name: " + album +"<br/>" + "Url: " + s_url +"<br/>")
 
-            for item in song:
-               album = item['object']['AlbumName']
-               artist = item['object']['ArtistName']
-               song = item['object']['SongName']
-            self.response.write('Album Name:' + album + '<br>' + 'Artist Name:' + artist + '<br>' + 'Song Name:' + song)
 
 class Page(object):
     def __init__(self):
-        self.head = '''
-<DOCTYPE HTML>
+        self._head = '''
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>Music</title>
+        <title></title>
     </head>
-    <body>'''
+    <body> '''
 
-        self.body = "Music App"
-        self.close = '''
+        self._body = 'Song App'
+        self._close = '''
     </body>
-</html>'''
+</html> '''
 
+    #this is being overridden below
     def print_out(self):
-        return self.head + self.body + self.close
+        return self._head + self._body + self._close
 
 class FormPage(Page):
     def __init__(self):
+        #2 ways to write:
+        #1. Page.__init__()    or   2. super(FormPage, self).__init__()
         super(FormPage, self).__init__()#constructor function for the super class
-        #create attribute for formpage
-        self.form_open = '<form method ="GET">'
-        self.form_close = '</form>'
+        #create attributes for FormPage.
+        self._form_open = '<form method = "GET">'
+        self._form_close = '</form>'
         self.__inputs = []
-        self._content = ''
+        self._form_inputs = ''
 
-        #getter
-        @property
-        def inputs(self):
-            pass
+    @property
+    def inputs(self):
+        pass
 
-        @inputs.setter
-        def inputs(self, song_array):
-            #changing my private 'inputs' into a variable
-            self.__inputs = song_array
+    @inputs.setter
+    def inputs(self, arr):
+        #change my private inputs variable
+        self.__inputs = arr
+        #sort through the mega array and create HTML inputs based on the info there
+        for item in arr:
+            #print item
+            self._form_inputs += '<input type="' +item[1]+ '"name="' + item[0]
+            #if there is a 3rd item.. add it in....
+            if len(item) >2:
+                self._form_inputs += '"placeholder="' + item[2]+'" />'
+            #otherwise.. end the tag
+            else:
+                self._form_inputs += '" />'
 
+        print self._form_inputs
 
-            for item in song_array:
-                self._content += '<input type="' + item[1] + '"name="' + item[0]
-                if len(item) >2:
-                    self._content += '"placeholder="' + item[2] + '" />'
-                else:
-                    self._content += '" />'
-
-                print self._content
-
+#Polymorphism Alert!!! -------method overriding
+    #we are overriding the def print_out method in the parent class
+    def print_out(self):
+        return self._head + self._body + self._form_open + self._form_inputs + self._form_close + self._close
 
 
 app = webapp2.WSGIApplication([
