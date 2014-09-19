@@ -14,6 +14,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
         p.inputs = [["song", "text", "Song Name"], ["Submit", "submit"]]
+        self.response.write(p.print_out())
 
         if self.request.GET:
             #get info from the API
@@ -43,8 +44,22 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class Page(object):
-    pass
+    def __init__(self):
+        self.head = '''
+<DOCTYPE HTML>
+<html>
+    <head>
+        <title>Music</title>
+    </head>
+    <body>'''
 
+        self.body = "Music App"
+        self.close = '''
+    </body>
+</html>'''
+
+    def print_out(self):
+        return self.head + self.body + self.close
 
 class FormPage(Page):
     pass
