@@ -30,7 +30,10 @@ class MainHandler(webapp2.RequestHandler):
             #special method that allows us to open the results and we get to look inside the url
             opener = urllib2.build_opener()
 
-            
+            #telling it to open the url take the results and put them inside the result variable
+            result = opener.open(request)
+
+            print result
 
 
 class Page(object):
