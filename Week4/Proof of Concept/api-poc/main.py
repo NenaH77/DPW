@@ -34,14 +34,19 @@ class MainHandler(webapp2.RequestHandler):
 
             #parsing the JSON
             jsondoc = json.load(result)
-            song = jsondoc['SongName']
-            artist = jsondoc['ArtistName']
-            album = jsondoc['AlbumName']
+            song = jsondoc['song']
+            #artist = jsondoc['ArtistName']
+            #album = jsondoc['AlbumName']
 
             self.reponse.write(jsondoc)
             self.response.write(song)
             self.response.write("Song Name:" + song)
 
+            for item in song:
+               album = item['object']['AlbumName']
+               artist = item['object']['ArtistName']
+               song = item['object']['SongName']
+            self.response.write('Album Name:' + album + '<br>' + 'Artist Name:' + artist + '<br>' + 'Song Name:' + song)
 
 class Page(object):
     def __init__(self):
@@ -62,7 +67,8 @@ class Page(object):
         return self.head + self.body + self.close
 
 class FormPage(Page):
-    pass
+    def __init__(self):
+        super(FormPage, self).__init__()#constructor function for the super class
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
