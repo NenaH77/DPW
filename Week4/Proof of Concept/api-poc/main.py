@@ -69,6 +69,16 @@ class Page(object):
 class FormPage(Page):
     def __init__(self):
         super(FormPage, self).__init__()#constructor function for the super class
+        #create attribute for formpage
+        self.form_open = '<form method ="GET">'
+        self.form_close = '</form>'
+        self.__inputs = []
+        self._form_inputs = ''
+
+        #getter
+        @property
+        def inputs(self):
+            pass
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
