@@ -22,7 +22,6 @@ class FormPage(object):
         </div>
     </body>
 </html> '''
-        self.all = ""
 
     def open(self):
         return self.open
@@ -35,11 +34,7 @@ class FormPage(object):
 
 
     def print_out(self):
-        self.update()
-        return self.all
+        return self.open + self.form + self.close
 
-    def update(self):
-        self.all = self.open + self.form + self.close
-        self.all = self.all.format(**locals())
-
-
+    def new_print_out(self, new_body):
+        return self.open + new_body + self.close
