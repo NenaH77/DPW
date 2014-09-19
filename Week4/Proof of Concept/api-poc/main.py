@@ -13,7 +13,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [["song", "text", "Song Name"], ["Submit", "submit"]]
+        p.inputs = [["name", "text", "Song Name"], ["Submit", "submit"]]
         self.response.write(p.print_out())
 
         if self.request.GET:
@@ -85,8 +85,16 @@ class FormPage(Page):
             #changing my private 'inputs' into a variable
             self.__inputs = song_array
 
+
             for item in song_array:
-                self._content +=
+                self._content += '<input type="' + item[1] + '"name="' + item[0]
+                if len(item) >2:
+                    self._content += '"placeholder="' + item[2] + '" />'
+                else:
+                    self._content += '" />'
+
+                print self._content
+
 
 
 app = webapp2.WSGIApplication([
