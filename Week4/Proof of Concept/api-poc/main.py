@@ -73,12 +73,21 @@ class FormPage(Page):
         self.form_open = '<form method ="GET">'
         self.form_close = '</form>'
         self.__inputs = []
-        self._form_inputs = ''
+        self._content = ''
 
         #getter
         @property
         def inputs(self):
             pass
+
+        @inputs.setter
+        def inputs(self, song_array):
+            #changing my private 'inputs' into a variable
+            self.__inputs = song_array
+
+            for item in song_array:
+                self._content +=
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
