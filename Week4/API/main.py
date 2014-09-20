@@ -121,7 +121,13 @@ class Page(object):
 
 
 class FormPage(Page):
-    
+    def __init__(self):
+        super(FormPage, self).__init__()
+        #create attributes for FormPage.
+        self._form_open = '<form method = "GET">'
+        self._form_close = '</form>'
+        self.__inputs = []
+        self._form_inputs = ''
 
 
 
