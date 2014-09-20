@@ -12,7 +12,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = ['movie', 'text', 'Movie Title'] ['Submit', 'submit']
+        p.inputs = ['movie', 'text', 'Movie Title'], ['Submit', 'submit']
 
         if self.request.GET:
             #get info from the API
@@ -33,7 +33,7 @@ class MainHandler(webapp2.RequestHandler):
             #takes data obj from Model and gives them to the View
             mv.mdos = mm.dos
 
-
+        self.response.write(p.print_out())
 
 
 class MovieView(object):
@@ -47,7 +47,7 @@ class MovieView(object):
     #create function that updates our display
     def update(self):
         for mov in self.__mdos:
-            self.__content += 'Title:' + mov.title + 'Year:' + mov.year
+            self.__content += 'Title:' + mov.title + 'Critics Ratings:' + mov.critics_score + 'Year:' + mov.year
             self.__content += 'Synopsis:' + mov.synopsis
             self.__content += 'Cast:' + mov.name
 
@@ -63,10 +63,6 @@ class MovieView(object):
     def mdos(self, arr):
         self.__mdos = arr
         self.update()#this will allow us to update our function above
-
-        print self.__mdos
-
-
 
 
 class MovieModel(object):
@@ -89,17 +85,35 @@ class MovieModel(object):
         result = opener.open(request)
 
         #parsing the json
-        self.__jsondoc = json.load(result)
+        jsondoc = json.load(result)
 
         #sorting data
         #we want to hold our content inside a data obj
         self._dos =[]
         #creating a data obj and assigning the value from our json file
         do = MovieData()
+        do.title = jsondoc['movies'][0]['title']
+        do.ratings = jsondoc['movies'] [0] ['critics_score']
+        do.year = jsondoc['movies'] [0] ['year']
+        do.synopsis = jsondoc['synopsis']
+        do.name = jsondoc['abridged_cast'] [0] ['name']
 
+        #put inside our array
+        self._dos.append(do)
 
+        print self._dos
 
+    @property
+    def dos(self):
+        return self._dos
 
+    @property
+    def movie(self):
+        pass
+
+    @movie.setter
+    def movie(self, m):
+        self.__movie = m
 
 class MovieData(object):
     pass
