@@ -28,7 +28,7 @@ class MainHandler(webapp2.RequestHandler):
             mm.callApi()
 
             #creates our MovieView
-            mv = MovieView()
+            mv = MovieView(mm.do)
 
             #takes data obj from Model and gives them to the View
             mv.mdos = mm.dos
@@ -41,7 +41,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class MovieView(object):
     ''' class handles how the data is shown to the user '''
-    def __init__(self):
+    def __init__(self, do):
         #holds data found from another class
         self.__mdos= []
         #Placeholder for content section
@@ -74,7 +74,7 @@ class MovieModel(object):
         self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="
         self.__key = "3wgzeuyj3ttnqnjbfr5xgafx&q="
         self.__movie = ""
-        self.__page = self.__movie + "&page_limit="
+        self.__page = self.__movie + "&page_limit=1"
         self.__jsondoc = ""
 
     #function used to call API and gather info Api
@@ -93,7 +93,7 @@ class MovieModel(object):
         #we want to hold our content inside a data obj
         self._dos =[]
 
-    
+
         #creating a data obj and assigning the value from our json file
         do = MovieData()
         do.title = jsondoc['movies'][0]['title']
