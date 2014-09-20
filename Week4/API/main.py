@@ -39,16 +39,29 @@ class MainHandler(webapp2.RequestHandler):
 class MovieView(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
+        #holds data found from another class
         self.mdos= []
-        self.content = '<br />'
-
+        #Placeholder for content section
+        self.__content = ''
 
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
-        self.__url = "http://api.rottentomatoes.com/api/public/v1.0"
+        self.__movie = ""
+        self.__jsondoc = ""
+
+        self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="
         self.__key = "3wgzeuyj3ttnqnjbfr5xgafx&q="
-        self.__full_url = self.__url + '/lists/movies/in_theaters' + self.__key + '&page_limit='
+        self.__page = self.__movie + "&page_limit="
+
+    def callApi(self):
+        #function used to call API and gather info Api
+        #assembles the request
+        request = urllib2.Request(self.__url + self.__key + self.__page)
+        #use the urllib2 to create object and get url
+
+
+
 
 class MovieData(object):
     pass
