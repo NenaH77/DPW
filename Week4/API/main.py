@@ -33,6 +33,9 @@ class MainHandler(webapp2.RequestHandler):
             #takes data obj from Model and gives them to the View
             mv.mdos = mm.dos
 
+            #html body is displayed properly
+            p._body = mv.content
+
         self.response.write(p.print_out())
 
 
@@ -76,7 +79,6 @@ class MovieModel(object):
 
     #function used to call API and gather info Api
     def callApi(self):
-
         #assembles the request
         request = urllib2.Request(self.__url + self.__key + self.__page)
         #use the urllib2 to create object and get url
@@ -90,13 +92,15 @@ class MovieModel(object):
         #sorting data
         #we want to hold our content inside a data obj
         self._dos =[]
+
+    
         #creating a data obj and assigning the value from our json file
         do = MovieData()
         do.title = jsondoc['movies'][0]['title']
-        do.ratings = jsondoc['movies'] [0] ['critics_score']
-        do.year = jsondoc['movies'] [0] ['year']
+        do.ratings = jsondoc['movies'][0]['critics_score']
+        do.year = jsondoc['movies'][0]['year']
         do.synopsis = jsondoc['synopsis']
-        do.name = jsondoc['abridged_cast'] [0] ['name']
+        do.name = jsondoc['abridged_cast'][0]['name']
 
         #put inside our array
         self._dos.append(do)
@@ -116,7 +120,13 @@ class MovieModel(object):
         self.__movie = m
 
 class MovieData(object):
-    pass
+    ''' this data object holds the data fetched by the model and shown by the view '''
+    def __init__(self):
+        self.title = ''
+        self.rating = ''
+        self.year = ''
+        self.synopsis = ''
+        self.name = ''
 
 class Page(object):
     def __init__(self):
