@@ -46,7 +46,9 @@ class MovieView(object):
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
-        self.__url = ""
+        self.__url = "http://api.rottentomatoes.com/api/public/v1.0"
+        self.__key = "3wgzeuyj3ttnqnjbfr5xgafx&q="
+        self.__full_url = self.__url + '/lists/movies/in_theaters' + self.__key + '&page_limit='
 
 class MovieData(object):
     pass
