@@ -138,10 +138,20 @@ class FormPage(Page):
         #change my private inputs variable
         self.__inputs = arr
 
+        #sort through the mega array and create HTML inputs based on the info there
+        for item in arr:
+            #print item
+            self._form_inputs += '<input type="' +item[1]+ '"name="' + item[0]
+            #if there is a 3rd item.. add it in....
+            if len(item) >2:
+                self._form_inputs += '"placeholder="' + item[2]+'" />'
+            #otherwise.. end the tag
+            else:
+                self._form_inputs += '" />'
 
-
-
-
+    #move self.body after self._form_close
+    def print_out(self):
+        return self._head + self._form_open + self._form_inputs + self._form_close + self._body + self._close
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
