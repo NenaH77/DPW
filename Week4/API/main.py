@@ -129,6 +129,17 @@ class FormPage(Page):
         self.__inputs = []
         self._form_inputs = ''
 
+    @property
+    def inputs(self):
+        pass
+
+    @inputs.setter
+    def inputs(self, arr):
+        #change my private inputs variable
+        self.__inputs = arr
+
+
+
 
 
 
