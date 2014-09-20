@@ -31,16 +31,22 @@ class MainHandler(webapp2.RequestHandler):
             mv = MovieView()
 
             #takes data obj from Model and gives them to the View
-            
+
 
 
 
 
 class MovieView(object):
-    pass
+    ''' class handles how the data is shown to the user '''
+    def __init__(self):
+        self.mdos= []
+        self.content = '<br />'
+
 
 class MovieModel(object):
-    pass
+    ''' class handles how the data is shown to the user '''
+    def __init__(self):
+        self.__url = ""
 
 class MovieData(object):
     pass
