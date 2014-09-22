@@ -93,10 +93,11 @@ class MovieModel(object):
         list = self.__jsondoc('movies')
 
         self.__dos = []
-        for tag in list:
+        do = MovieData()
+        for m in list:
             #stores data
-            do = MovieData()
-            do.title = self.__jsondoc['movies'][0]['title']
+
+            do.title = ['movies'][0]['title']
             do.ratings = self.__jsondoc['movies'][0]['critics_score']
             do.year = self.__jsondoc['movies'][0]['year']
             do.synopsis = self.__jsondoc['movies'][0]['synopsis']
