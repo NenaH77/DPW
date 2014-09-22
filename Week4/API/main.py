@@ -87,31 +87,35 @@ class MovieModel(object):
         result = opener.open(request)
 
         #parsing the json
-        jsondoc = json.load(result)
+        self.__jsondoc = json.load(result)
 
         #sorting data
         list = self.__jsondoc('movies')
 
-        #stores data
-        self.title = jsondoc['movies'][0]['title']
-        self.ratings = jsondoc['movies'][0]['critics_score']
-        self.year = jsondoc['movies'][0]['year']
-        self.synopsis = jsondoc['movies'][0]['synopsis']
-        self.name = jsondoc['movies'][0]['abridged_cast'][0]['name']
+        self.__dos = []
+        for tag in list:
+            #stores data
+            do = MovieData()
+            do.title = self.__jsondoc['movies'][0]['title']
+            do.ratings = self.__jsondoc['movies'][0]['critics_score']
+            do.year = self.__jsondoc['movies'][0]['year']
+            do.synopsis = self.__jsondoc['movies'][0]['synopsis']
+            do.name = self.__jsondoc['movies'][0]['abridged_cast'][0]['name']
 
-        #combine variables into 1 obj
-        self.__cm = [self.title, self.ratings, self.year, self.synopsis, self.name]
+            #put inside my array
+            self.__dos.append(do)
+            #combine variables into 1 obj
+            #self.__cm = [self.title, self.ratings, self.year, self.synopsis, self.name]
 
-
-        print self.title
+        print self.__dos
 
     @property
-    def cm(self):
-        return self.__cm
+    def dos(self):
+        return self.__dos
 
-    @cm.setter
-    def cm(self, c):
-        self.__cm = c
+    #@cm.setter
+    #def cm(self, c):
+        #self.__cm = c
 
     @property
     def movie(self):
