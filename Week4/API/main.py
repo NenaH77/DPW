@@ -89,6 +89,9 @@ class MovieModel(object):
         #parsing the json
         jsondoc = json.load(result)
 
+        #sorting data
+        list = self.__jsondoc('movies')
+
         #stores data
         self.title = jsondoc['movies'][0]['title']
         self.ratings = jsondoc['movies'][0]['critics_score']
