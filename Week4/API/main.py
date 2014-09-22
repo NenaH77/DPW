@@ -28,7 +28,7 @@ class MainHandler(webapp2.RequestHandler):
             mm.callApi()
 
             #creates our MovieView
-            mv = MovieView(mm.do)
+            mv = MovieView()
 
             #takes data obj from Model and gives them to the View
             mv.mdos = mm.dos
@@ -41,7 +41,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class MovieView(object):
     ''' class handles how the data is shown to the user '''
-    def __init__(self, do):
+    def __init__(self):
         #holds data found from another class
         self.__mdos= []
         #Placeholder for content section
@@ -89,27 +89,26 @@ class MovieModel(object):
         #parsing the json
         jsondoc = json.load(result)
 
-        #sorting data
-        #we want to hold our content inside a data obj
-        self._dos =[]
+        #stores data
+        self.title = jsondoc['movies'][0]['title']
+        self.ratings = jsondoc['movies'][0]['critics_score']
+        self.year = jsondoc['movies'][0]['year']
+        self.synopsis = jsondoc['movies'][0]['synopsis']
+        self.name = jsondoc['movies'][0]['abridged_cast'][0]['name']
+
+        #combine variables into 1 obj
+        self.__cm = [self.title, self.ratings, self.year, self.synopsis, self.name]
 
 
-        #creating a data obj and assigning the value from our json file
-        do = MovieData()
-        do.title = jsondoc['movies'][0]['title']
-        do.ratings = jsondoc['movies'][0]['critics_score']
-        do.year = jsondoc['movies'][0]['year']
-        do.synopsis = jsondoc['synopsis']
-        do.name = jsondoc['abridged_cast'][0]['name']
-
-        #put inside our array
-        self._dos.append(do)
-
-        print self._dos
+        print self.title
 
     @property
-    def dos(self):
-        return self._dos
+    def cm(self):
+        return self.__cm
+
+    @cm.setter
+    def cm(self, c):
+        self.__cm = c
 
     @property
     def movie(self):
