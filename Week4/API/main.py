@@ -12,17 +12,17 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = ['movie', 'text', 'Movie Title'], ['Submit', 'submit']
+        p.inputs = ['movies', 'text', 'Movie Title'], ['Submit', 'submit']
 
         if self.request.GET:
             #get info from the API
-            movie = self.request.GET['movie']
+            movies = self.request.GET['movies']
 
             #we need to get movie into the MovieModel
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movie = self.request.GET['movie']
+            mm.movies = self.request.GET['movies']
 
             #tells it to connect to the API
             mm.callApi()
@@ -49,10 +49,12 @@ class MovieView(object):
 
     #create function that updates our display
     def update(self):
-        for mov in self.__mdos:
-            self.__content += 'Title:' + mov.title + 'Critics Ratings:' + mov.critics_score + 'Year:' + mov.year
-            self.__content += 'Synopsis:' + mov.synopsis
-            self.__content += 'Cast:' + mov.name
+        for do in self.__mdos:
+            self.__content += '<h2> Movie Title:' + str(do.title) + '</h2>'
+            self.__content += '<div class="rating"> Critics Ratings:' + do.critics_score + '</div>'
+            self.__content += '<div class="year"> Year:' + str(do.year) + '</div>'
+            self.__content += '<div class="syn"> Synopsis:' + str(do.synopsis) + '</div>'
+            self.__content += 'Cast:' + str(do.name) + '</div>'
 
     @property#this will allow us to read our content
     def content(self):
@@ -73,8 +75,8 @@ class MovieModel(object):
     def __init__(self):
         self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="
         self.__key = "3wgzeuyj3ttnqnjbfr5xgafx&q="
-        self.__movie = ""
-        self.__page = self.__movie + "&page_limit=1"
+        self.__movies = ""
+        self.__page = self.__movies + "&page_limit=1"
         self.__jsondoc = ""
 
     #function used to call API and gather info Api
@@ -90,41 +92,36 @@ class MovieModel(object):
         self.__jsondoc = json.load(result)
 
         #sorting data
-        list = self.__jsondoc('movies')
-
+        current_movie = self.__jsondoc['movies']
+         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
         self.__dos = []
-        do = MovieData()
-        for m in list:
+
+        for item in current_movie:
             #stores data
+            do = MovieData()
+            try:
+                do.title = item['movies'][0]['title']
+                do.ratings = item['movies'][0]['critics_score']
+                do.year = item['movies'][0]['year']
+                do.synopsis = item['movies'][0]['synopsis']
+                do.name = item['movies'][0]['abridged_cast'][0]['name']
+                self.__dos.append(do)
+            except:
+                #put inside my array
+                self.__dos.append(do)
 
-            do.title = ['movies'][0]['title']
-            do.ratings = self.__jsondoc['movies'][0]['critics_score']
-            do.year = self.__jsondoc['movies'][0]['year']
-            do.synopsis = self.__jsondoc['movies'][0]['synopsis']
-            do.name = self.__jsondoc['movies'][0]['abridged_cast'][0]['name']
-
-            #put inside my array
-            self.__dos.append(do)
-            #combine variables into 1 obj
-            #self.__cm = [self.title, self.ratings, self.year, self.synopsis, self.name]
-
-        print self.__dos
 
     @property
     def dos(self):
         return self.__dos
 
-    #@cm.setter
-    #def cm(self, c):
-        #self.__cm = c
-
     @property
-    def movie(self):
+    def movies(self):
         pass
 
-    @movie.setter
-    def movie(self, m):
-        self.__movie = m
+    @movies.setter
+    def movies(self, m):
+        self.__movies = m
 
 class MovieData(object):
     ''' this data object holds the data fetched by the model and shown by the view '''
