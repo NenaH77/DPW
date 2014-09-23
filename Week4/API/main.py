@@ -5,7 +5,7 @@ class: dpw
 assignment: api
 
 '''
-mport webapp2
+import webapp2
 import urllib2
 import json
 
@@ -31,12 +31,13 @@ class MainHandler(webapp2.RequestHandler):
             mv = MovieView()
 
             #takes data obj from Model and gives them to the View
-            mv.mdos = mm.dos
+            #mv.mdos = mm.dos
+            mv.mdos = mm.cm
 
             #html body is displayed properly
             p._body = mv.content
 
-        #self.response.write(p.print_out())
+        self.response.write(p.print_out())
 
 
 
@@ -94,27 +95,32 @@ class MovieModel(object):
         #parsing the json
         jsondoc = json.load(result)
 
-        #sorting data
-        current_movie = jsondoc['movies']
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
-        self._dos = []
-        for item in current_movie:
-            #stores data
-            do = MovieData()
-            do.title = item['movies'][0]['title']
-            do.ratings = item['movies'][0]['critics_score']
-            do.year = item['movies'][0]['year']
-            do.synopsis = item['movies'][0]['synopsis']
-            do.name = item['movies'][0]['abridged_cast'][0]['name']
-            #put inside my array
-            self._dos.append(do)
+        #self._dos = []
 
-            self.response.write(jsondoc)
-            self.response.write(do.title)
+        #do = MovieData()
+        #do.title = jsondoc['movies'][0]['title']
+        #do.ratings = jsondoc['movies'][0]['critics_score']
+        #do.year = jsondoc['movies'][0]['year']
+        #do.synopsis = jsondoc['movies'][0]['synopsis']
+        #do.name = jsondoc['movies'][0]['abridged_cast'][0]['name']
+        #put inside my array
+        #self._dos.append(do)
 
-    @property
-    def dos(self):
-        return self._dos
+        self._cm_title = jsondoc['movies'][0]['title']
+        self._cm_rating = jsondoc['movies'][0]['critics_score']
+        self._cm_year = jsondoc['movies'][0]['year']
+        self._cm_synopsis = jsondoc['movies'][0]['synopsis']
+        self._cm_name = jsondoc['movies'][0]['abridged_cast'][0]['name']
+
+        self._cm = [self._cm_title, self._cm_rating, self._cm_year, self._cm_synopsis, self._cm_name]
+
+
+
+
+    #@property
+    #def dos(self):
+        #return self._dos
 
     @property
     def movies(self):
@@ -123,6 +129,14 @@ class MovieModel(object):
     @movies.setter
     def movies(self, m):
         self.__movies = m
+
+    @property
+    def cm(self):
+        pass
+
+    @movies.setter
+    def cm(self, c):
+        self._cm = c
 
 class MovieData(object):
     ''' this data object holds the data fetched by the model and shown by the view '''
