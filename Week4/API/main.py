@@ -54,21 +54,25 @@ class MovieView(object):
             self.__content += '<h2> Movie Title:' + do.title + '</h2>'
             self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
             self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
-            self.__content += '<p class="syn"> Synopsis:' + str(do.synopsis) + '</p>'
-            self.__content += '<p class="cast> Cast:' + str(do.name) + '</p>'
+            self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
+            self.__content += '<p class="cast> Cast:' + do.name + '</p>'
 
-    @property#this will allow us to read our content
+    #this will allow us to read our content
+    @property
     def content(self):
         return self.__content
 
-    @property#we don't need to read our mdos, we need to change it so this can be empty
+    #we don't need to read our mdos, we need to change it so this can be empty
+    @property
     def mdos(self):
         pass
 
-    @mdos.setter#write only
+    #write only
+    @mdos.setter
     def mdos(self, arr):
         self.__mdos = arr
-        self.update()#this will allow us to update our function above
+        #this will allow us to update our function above
+        #self.update()
 
 
 class MovieModel(object):
@@ -93,8 +97,7 @@ class MovieModel(object):
         #sorting data
         current_movie = self.__jsondoc['movies']
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
-        self.__dos = []
-
+        self._dos = []
         for item in current_movie:
             #stores data
             do = MovieData()
@@ -104,11 +107,11 @@ class MovieModel(object):
             do.synopsis = item['movies'][0]['synopsis']
             do.name = item['movies'][0]['abridged_cast'][0]['name']
             #put inside my array
-            self.__dos.append(do)
+            self._dos.append(do)
 
     @property
     def dos(self):
-        return self.__dos
+        return self._dos
 
     @property
     def movies(self):
