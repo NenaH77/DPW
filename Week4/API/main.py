@@ -30,16 +30,17 @@ class MainHandler(webapp2.RequestHandler):
             #creates our MovieView
             mv = MovieView()
 
+            print mm.dos
+
             #takes data obj from Model and gives them to the View
-            #mv.mdos = mm.dos
-            mv.mdos = mm.cm
+            mv.mdos = mm.dos
+            #mv.mdos = mm.cm
 
             #html body is displayed properly
-            #p._body = mv.content
-            p.__body = "<h3>Movie Title:" + mm.cm[0] + "</h3>"
+            p._body = mv.content
+            #p.__body = "<h3>Movie Title:" + mm.cm[0] + "</h3><br />" "<p>Rating:" + mm.cm[1] + "</p><br/>"
 
         self.response.write(p.print_out())
-
 
 
 class MovieView(object):
@@ -51,12 +52,12 @@ class MovieView(object):
         self.__content = '<br />'
 
     #create function that updates our display
-    #def update(self):
-        #for do in self.__mdos:
-            #self.__content += '<h2> Movie Title:' + do.title + '</h2>'
-            #self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
-            #self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
-            #self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
+    def update(self):
+        for do in self.__mdos:
+            self.__content += '<h2> Movie Title:' + do.title + '</h2>'
+            self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
+            self.__content += '<p class="year"> Year:' + do.year + '</p>'
+            self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
             #self.__content += '<p class="cast> Cast:' + do.name + '</p>'
 
     #this will allow us to read our content
@@ -75,20 +76,20 @@ class MovieView(object):
     def mdos(self, arr):
         self.__mdos = arr
         #this will allow us to update our function above
-        #self.update()
+        self.update()
 
 
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
-        self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q="
-        self.__movies = ""
-        self.__page = "&page_limit=1"
+        self.apikey = "3wgzeuyj3ttnqnjbfr5xgafx&q="
+        self.__movieSearchUrl = "http://api.rottentomatoes.com/api/public/v1.0"
+
 
     #function used to call API and gather info Api
     def callApi(self):
         #assembles the request
-        request = urllib2.Request(self.__url+self.__movies+self.__page)
+        request = urllib2.Request(self.__movieSearchUrl + '/movies.json?apikey=' + self.__apikey + 'Jack' + '&page_limit=1')
         #use the urllib2 to create object and get url
         opener = urllib2.build_opener()
         #use the url to get a result - request info from the API
@@ -98,31 +99,31 @@ class MovieModel(object):
         jsondoc = json.load(result)
 
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
-        #self._dos = []
+        self._dos = []
 
-        #do = MovieData()
-        #do.title = jsondoc['movies'][0]['title']
-        #do.ratings = jsondoc['movies'][0]['critics_score']
-        #do.year = jsondoc['movies'][0]['year']
-        #do.synopsis = jsondoc['movies'][0]['synopsis']
-        #do.name = jsondoc['movies'][0]['abridged_cast'][0]['name']
-        #put inside my array
-        #self._dos.append(do)
+        current_movies = jsondoc['movies']
+        for movies in current_movies:
+            do = MovieData()
+            do.title = movies['title']
+            do.ratings = movies['ratings']['critics_score']
+            do.year = movies['year']
+            do.synopsis = movies['synopsis']
+            do.name = movies['abridged_cast']['name']
+            #put inside my array
+            self._dos.append(do)
 
-        self._cm_title = jsondoc['movies'][0]['title']
-        self._cm_rating = jsondoc['movies'][0]['critics_score']
-        self._cm_year = jsondoc['movies'][0]['year']
-        self._cm_synopsis = jsondoc['movies'][0]['synopsis']
-        self._cm_name = jsondoc['movies'][0]['abridged_cast'][0]['name']
+        #self._cm_title = jsondoc['movies'][0]['title']
+        #self._cm_rating = jsondoc['movies'][0]['critics_score']
+        #self._cm_year = jsondoc['movies'][0]['year']
+        #self._cm_synopsis = jsondoc['movies'][0]['synopsis']
+        #self._cm_name = jsondoc['movies'][0]['abridged_cast'][0]['name']
 
-        self._cm = [self._cm_title, self._cm_rating, self._cm_year, self._cm_synopsis, self._cm_name]
-
-
+        #self._cm = [self._cm_title, self._cm_rating, self._cm_year, self._cm_synopsis, self._cm_name]
 
 
     #@property
-    #def dos(self):
-        #return self._dos
+    def dos(self):
+        return self._dos
 
     @property
     def movies(self):
@@ -132,13 +133,13 @@ class MovieModel(object):
     def movies(self, m):
         self.__movies = m
 
-    @property
-    def cm(self):
-        pass
+    #@property
+    #def cm(self):
+        #pass
 
-    @movies.setter
-    def cm(self, c):
-        self._cm = c
+    #@cm.setter
+    #def cm(self, c):
+        #self._cm = c
 
 class MovieData(object):
     ''' this data object holds the data fetched by the model and shown by the view '''
@@ -163,10 +164,6 @@ class Page(object):
         self._close = '''
     </body>
 </html> '''
-
-    #this is being overridden below
-    def print_out(self):
-        return self._head + self._body + self._close
 
 
 class FormPage(Page):
