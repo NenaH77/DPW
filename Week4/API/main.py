@@ -39,6 +39,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.print_out())
 
 
+
 class MovieView(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
@@ -50,11 +51,11 @@ class MovieView(object):
     #create function that updates our display
     def update(self):
         for do in self.__mdos:
-            self.__content += '<h2> Movie Title:' + str(do.title) + '</h2>'
-            self.__content += '<div class="rating"> Critics Ratings:' + do.critics_score + '</div>'
-            self.__content += '<div class="year"> Year:' + str(do.year) + '</div>'
-            self.__content += '<div class="syn"> Synopsis:' + str(do.synopsis) + '</div>'
-            self.__content += 'Cast:' + str(do.name) + '</div>'
+            self.__content += '<h2> Movie Title:' + do.title + '</h2>'
+            self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
+            self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
+            self.__content += '<p class="syn"> Synopsis:' + str(do.synopsis) + '</p>'
+            self.__content += '<p class="cast> Cast:' + str(do.name) + '</p>'
 
     @property#this will allow us to read our content
     def content(self):
@@ -73,16 +74,14 @@ class MovieView(object):
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
-        self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey="
-        self.__key = "3wgzeuyj3ttnqnjbfr5xgafx&q="
         self.__movies = ""
-        self.__page = self.__movies + "&page_limit=1"
         self.__jsondoc = ""
 
     #function used to call API and gather info Api
     def callApi(self):
+        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
         #assembles the request
-        request = urllib2.Request(self.__url + self.__key + self.__page)
+        request = urllib2.Request(url)
         #use the urllib2 to create object and get url
         opener = urllib2.build_opener()
         #use the url to get a result
@@ -93,23 +92,19 @@ class MovieModel(object):
 
         #sorting data
         current_movie = self.__jsondoc['movies']
-         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
+        #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
         self.__dos = []
 
         for item in current_movie:
             #stores data
             do = MovieData()
-            try:
-                do.title = item['movies'][0]['title']
-                do.ratings = item['movies'][0]['critics_score']
-                do.year = item['movies'][0]['year']
-                do.synopsis = item['movies'][0]['synopsis']
-                do.name = item['movies'][0]['abridged_cast'][0]['name']
-                self.__dos.append(do)
-            except:
-                #put inside my array
-                self.__dos.append(do)
-
+            do.title = item['movies'][0]['title']
+            do.ratings = item['movies'][0]['critics_score']
+            do.year = item['movies'][0]['year']
+            do.synopsis = item['movies'][0]['synopsis']
+            do.name = item['movies'][0]['abridged_cast'][0]['name']
+            #put inside my array
+            self.__dos.append(do)
 
     @property
     def dos(self):
@@ -138,11 +133,11 @@ class Page(object):
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title></title>
+        <title>Welcome to Movie Search</title>
     </head>
     <body> '''
 
-        self._body = 'Test My Movie App'
+        self._body = 'Movie App'
         self._close = '''
     </body>
 </html> '''
@@ -153,9 +148,9 @@ class FormPage(Page):
         super(FormPage, self).__init__()
         #create attributes for FormPage.
         self._form_open = '<form method = "GET">'
-        self._form_close = '</form>'
-        self.__inputs = []
         self._form_inputs = ''
+        self.__inputs = []
+        self._form_close = '</form>'
 
     @property
     def inputs(self):
