@@ -12,7 +12,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = ['movies', 'text', 'Movie Title'], ['Submit', 'submit']
+        p.inputs = [['movies', 'text', 'Movie Title'], ['Submit', 'submit']]
 
         if self.request.GET:
             #get info from the API
@@ -27,6 +27,8 @@ class MainHandler(webapp2.RequestHandler):
             #tells it to connect to the API
             mm.callApi()
 
+            print mm.dos
+
             #creates our MovieView
             mv = MovieView()
 
@@ -36,7 +38,7 @@ class MainHandler(webapp2.RequestHandler):
             #html body is displayed properly
             p._body = mv.content
 
-        self.response.write(p.print_out())
+        #self.response.write(p.print_out())
 
 
 
