@@ -27,8 +27,6 @@ class MainHandler(webapp2.RequestHandler):
             #tells it to connect to the API
             mm.callApi()
 
-            print mm.dos
-
             #creates our MovieView
             mv = MovieView()
 
@@ -48,7 +46,7 @@ class MovieView(object):
         #holds data found from another class
         self.__mdos= []
         #Placeholder for content section
-        self.__content = ''
+        self.__content = '<br />'
 
     #create function that updates our display
     def update(self):
@@ -74,30 +72,30 @@ class MovieView(object):
     def mdos(self, arr):
         self.__mdos = arr
         #this will allow us to update our function above
-        #self.update()
+        self.update()
 
 
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
+        self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q="
         self.__movies = ""
-        self.__jsondoc = ""
+        self.__page = "&page_limit=1"
 
     #function used to call API and gather info Api
     def callApi(self):
-        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
         #assembles the request
-        request = urllib2.Request(url)
+        request = urllib2.Request(self.__url+self.__movies+self.__page)
         #use the urllib2 to create object and get url
         opener = urllib2.build_opener()
-        #use the url to get a result
+        #use the url to get a result - request info from the API
         result = opener.open(request)
 
         #parsing the json
-        self.__jsondoc = json.load(result)
+        jsondoc = json.load(result)
 
         #sorting data
-        current_movie = self.__jsondoc['movies']
+        current_movie = jsondoc['movies']
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
         self._dos = []
         for item in current_movie:
@@ -110,6 +108,9 @@ class MovieModel(object):
             do.name = item['movies'][0]['abridged_cast'][0]['name']
             #put inside my array
             self._dos.append(do)
+
+            self.response.write(jsondoc)
+            self.response.write(do.title)
 
     @property
     def dos(self):
@@ -147,6 +148,10 @@ class Page(object):
     </body>
 </html> '''
 
+    #this is being overridden below
+    def print_out(self):
+        return self._head + self._body + self._close
+
 
 class FormPage(Page):
     def __init__(self):
@@ -165,7 +170,6 @@ class FormPage(Page):
     def inputs(self, arr):
         #change my private inputs variable
         self.__inputs = arr
-
         #sort through the mega array and create HTML inputs based on the info there
         for item in arr:
             #print item
