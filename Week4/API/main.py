@@ -12,126 +12,34 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['movies', 'text', 'Movie Title'], ['Submit', 'submit']]
+        p.inputs = [['city', 'text', 'city'], ['country', 'text', 'country'], ['Submit', 'submit']]
+        self.response.write(p.print_out())
 
-        if self.request.GET:
-            #get info from the API
-            movies = self.request.GET['movies']
+        if self.request.GET: #only if there is a zip variable in the url
+            #get info form the API
+            city = self.request.GET['city']
+            country = self.request.GET['country']
+            url = "http://api.openweathermap.org/data/2.5/weather?q=" + city +","+ country
 
-            #we need to get movie into the MovieModel
-            mm = MovieModel()
+            #assemble the request
+            request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
 
-            #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies']
+            #use the urllib2 to create and object to get the url
+            opener = urllib2.build_opener()
 
-            #tells it to connect to the API
-            mm.callApi()
+            #use the url to get a result - request info from the API
+            result = opener.open(request)
 
-            #creates our MovieView
-            mv = MovieView()
-
-            #takes data obj from Model and gives them to the View
-            mv.mdos = mm.dos
-
-            #html body is displayed properly
-            p._body = mv.content
-
-        #self.response.write(p.print_out())
-
-
-
-class MovieView(object):
-    ''' class handles how the data is shown to the user '''
-    def __init__(self):
-        #holds data found from another class
-        self.__mdos= []
-        #Placeholder for content section
-        self.__content = '<br />'
-
-    #create function that updates our display
-    def update(self):
-        for do in self.__mdos:
-            self.__content += '<h2> Movie Title:' + do.title + '</h2>'
-            self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
-            self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
-            self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
-            self.__content += '<p class="cast> Cast:' + do.name + '</p>'
-
-    #this will allow us to read our content
-    @property
-    def content(self):
-        return self.__content
-
-    #we don't need to read our mdos, we need to change it so this can be empty
-    @property
-    def mdos(self):
-        pass
-
-    #write only
-    @mdos.setter
-    def mdos(self, arr):
-        self.__mdos = arr
-        #this will allow us to update our function above
-        self.update()
-
-
-class MovieModel(object):
-    ''' class handles how the data is shown to the user '''
-    def __init__(self):
-        self.__url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q="
-        self.__movies = ""
-        self.__page = "&page_limit=1"
-
-    #function used to call API and gather info Api
-    def callApi(self):
-        #assembles the request
-        request = urllib2.Request(self.__url+self.__movies+self.__page)
-        #use the urllib2 to create object and get url
-        opener = urllib2.build_opener()
-        #use the url to get a result - request info from the API
-        result = opener.open(request)
-
-        #parsing the json
-        jsondoc = json.load(result)
-
-        #sorting data
-        current_movie = jsondoc['movies']
-        #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
-        self._dos = []
-        for item in current_movie:
-            #stores data
-            do = MovieData()
-            do.title = item['movies'][0]['title']
-            do.ratings = item['movies'][0]['critics_score']
-            do.year = item['movies'][0]['year']
-            do.synopsis = item['movies'][0]['synopsis']
-            do.name = item['movies'][0]['abridged_cast'][0]['name']
-            #put inside my array
-            self._dos.append(do)
+            #parsing the JSON
+            jsondoc = json.load(result)
+            lat = jsondoc['coord']
+            name = jsondoc['name']
+            condition = jsondoc['weather'][0]['description']
 
             self.response.write(jsondoc)
-            self.response.write(do.title)
+            self.response.write(lat)
+            self.response.write("City Chosen: " + name +"<br/>")
 
-    @property
-    def dos(self):
-        return self._dos
-
-    @property
-    def movies(self):
-        pass
-
-    @movies.setter
-    def movies(self, m):
-        self.__movies = m
-
-class MovieData(object):
-    ''' this data object holds the data fetched by the model and shown by the view '''
-    def __init__(self):
-        self.title = ''
-        self.rating = ''
-        self.year = ''
-        self.synopsis = ''
-        self.name = ''
 
 class Page(object):
     def __init__(self):
@@ -139,11 +47,11 @@ class Page(object):
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Welcome to Movie Search</title>
+        <title></title>
     </head>
     <body> '''
 
-        self._body = 'Movie App'
+        self._body = 'Weather App'
         self._close = '''
     </body>
 </html> '''
@@ -152,15 +60,16 @@ class Page(object):
     def print_out(self):
         return self._head + self._body + self._close
 
-
 class FormPage(Page):
     def __init__(self):
-        super(FormPage, self).__init__()
+        #2 ways to write:
+        #1. Page.__init__()    or   2. super(FormPage, self).__init__()
+        super(FormPage, self).__init__()#constructor function for the super class
         #create attributes for FormPage.
         self._form_open = '<form method = "GET">'
-        self._form_inputs = ''
-        self.__inputs = []
         self._form_close = '</form>'
+        self.__inputs = []
+        self._form_inputs = ''
 
     @property
     def inputs(self):
@@ -181,9 +90,12 @@ class FormPage(Page):
             else:
                 self._form_inputs += '" />'
 
-    #move self.body after self._form_close
+        print self._form_inputs
+
+#Polymorphism Alert!!! -------method overriding
+    #we are overriding the def print_out method in the parent class
     def print_out(self):
-        return self._head + self._form_open + self._form_inputs + self._form_close + self._body + self._close
+        return self._head + self._body + self._form_open + self._form_inputs + self._form_close + self._close
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
