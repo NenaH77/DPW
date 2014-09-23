@@ -35,7 +35,8 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = mv.content
+            #p._body = mv.content
+            p.__body = "<h3>Movie Title:" + mm.cm[0] + "</h3>"
 
         self.response.write(p.print_out())
 
@@ -50,13 +51,13 @@ class MovieView(object):
         self.__content = '<br />'
 
     #create function that updates our display
-    def update(self):
-        for do in self.__mdos:
-            self.__content += '<h2> Movie Title:' + do.title + '</h2>'
-            self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
-            self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
-            self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
-            self.__content += '<p class="cast> Cast:' + do.name + '</p>'
+    #def update(self):
+        #for do in self.__mdos:
+            #self.__content += '<h2> Movie Title:' + do.title + '</h2>'
+            #self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
+            #self.__content += '<p class="year"> Year:' + str(do.year) + '</p>'
+            #self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
+            #self.__content += '<p class="cast> Cast:' + do.name + '</p>'
 
     #this will allow us to read our content
     @property
@@ -66,14 +67,15 @@ class MovieView(object):
     #we don't need to read our mdos, we need to change it so this can be empty
     @property
     def mdos(self):
-        pass
+        #pass
+        return self.__mdos
 
     #write only
     @mdos.setter
     def mdos(self, arr):
         self.__mdos = arr
         #this will allow us to update our function above
-        self.update()
+        #self.update()
 
 
 class MovieModel(object):
