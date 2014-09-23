@@ -12,14 +12,13 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['city', 'text', 'city'], ['country', 'text', 'country'], ['Submit', 'submit']]
+        p.inputs = [['movies', 'text', 'Movie Title'], ['Submit', 'submit']]
         self.response.write(p.print_out())
 
         if self.request.GET: #only if there is a zip variable in the url
             #get info form the API
-            city = self.request.GET['city']
-            country = self.request.GET['country']
-            url = "http://api.openweathermap.org/data/2.5/weather?q=" + city +","+ country
+            movies = self.request.GET['movies']
+            url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + movies + "&page_limit=1"
 
             #assemble the request
             request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
@@ -32,14 +31,22 @@ class MainHandler(webapp2.RequestHandler):
 
             #parsing the JSON
             jsondoc = json.load(result)
-            lat = jsondoc['coord']
+            title = jsondoc['title']
             name = jsondoc['name']
-            condition = jsondoc['weather'][0]['description']
+            year = jsondoc['movies'][0]['year']
 
             self.response.write(jsondoc)
-            self.response.write(lat)
-            self.response.write("City Chosen: " + name +"<br/>")
+            self.response.write(title)
+            self.response.write("Movie Chosen: " + title +"<br/>")
 
+class MovieData(object):
+    ''' this data object holds the data fetched by the model and shown by the view '''
+    def __init__(self):
+        self.title = ''
+        self.rating = ''
+        self.year = ''
+        self.synopsis = ''
+        self.name = ''
 
 class Page(object):
     def __init__(self):
@@ -51,7 +58,7 @@ class Page(object):
     </head>
     <body> '''
 
-        self._body = 'Weather App'
+        self._body = 'Movie App'
         self._close = '''
     </body>
 </html> '''
