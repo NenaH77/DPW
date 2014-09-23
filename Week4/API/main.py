@@ -13,13 +13,14 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
         p.inputs = [['movies', 'text', 'Movie Title'], ['Submit', 'submit']]
+
         self.response.write(p.print_out())
 
         if self.request.GET: #only if there is a zip variable in the url
             #get info form the API
             movies = self.request.GET['movies']
             url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + movies + "&page_limit=1"
-
+            self.jsondoc = ""
             #assemble the request
             request = urllib2.Request(url) #we are using the class and accessing the static method in the class. We don't need to create an instance
 
@@ -31,13 +32,26 @@ class MainHandler(webapp2.RequestHandler):
 
             #parsing the JSON
             jsondoc = json.load(result)
-            title = jsondoc['title']
-            name = jsondoc['name']
-            year = jsondoc['movies'][0]['year']
 
-            self.response.write(jsondoc)
-            self.response.write(title)
-            self.response.write("Movie Chosen: " + title +"<br/>")
+            #var to contain json call to "movies" from API call
+            current_movies = self.jsondoc['movies']
+            #dos 'data obj' property to contain do 'data object' being passed from loop
+            self._dos = []
+            #for loop will run thru ea item of 'do.data obj' in the current_movies 'dos data obj' var
+            for item in current_movies:
+                #instantiation of MovieData
+                do = MovieData()
+                do.title = item['movies'][0]['title']
+                do.ratings = item['movies'][0]['critics_score']
+                do.year = item['movies'][0]['year']
+                do.synopsis = item['movies'][0]['synopsis']
+                do.name = item['movies'][0]['abridged_cast'][0]['name']
+                #put inside my array
+                self._dos.append(do)
+
+            print self._dos
+
+
 
 class MovieData(object):
     ''' this data object holds the data fetched by the model and shown by the view '''
