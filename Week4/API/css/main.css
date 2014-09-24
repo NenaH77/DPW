@@ -3,7 +3,7 @@ html, body {
     text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	width:70%;
+
 }
 
 input[type='text']{
@@ -28,6 +28,24 @@ input[type='submit']{
 	box-shadow: -3px 6px 53px 0px rgba(0,0,0,0.75);
 	width:250px;
 	height:80px;
-	font: 50px;
+	font-size: 50px;
 
 }
+
+.wrapper{
+    padding: 20px;
+    background: linear-gradient(to right, rgba(0,98,154,1) 0%, rgba(0,72,154,1) 44%, rgba(0,46,154,1) 100%);
+}
+
+.title{
+    font-size: 40px;
+    color: #d5e5ff
+
+}
+
+.content{
+    font-size: 15px;
+    color: #d5e5ff
+
+}
+
