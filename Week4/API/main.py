@@ -22,9 +22,7 @@ class MainHandler(webapp2.RequestHandler):
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            new_movies = self.request.GET['movies']
-            mov_mov = new_movies.replace("","+")
-            mm.movies=mov_mov
+            mm.movies = self.request.GET['movies']
 
             #tells it to connect to the API
             mm.callApi()
@@ -76,7 +74,7 @@ class MovieModel(object):
 
     #function used to call API and gather info Api
     def callApi(self):
-        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
+        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies.replace('','+') + "&page_limit=1"
 
         print url
 
@@ -93,16 +91,15 @@ class MovieModel(object):
 
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
         self._dos = []
-        #for item in current_movies:
-            #try:
-        self.cm_title = jsondoc['movies'][0]['title']
-        self.cm_ratings = jsondoc['movies'][0]['ratings']['critics_score']
-        self.cm_year = jsondoc['movies'][0]['year']
-        self.cm_synopsis = jsondoc['movies'][0]['synopsis']
-        self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
-        self.cm = [self.cm_title, self.cm_ratings, self.cm_year, self.cm_synopsis, self.cm_name]
-    #except:
-                #pass
+        try:
+            self.cm_title = jsondoc['movies'][0]['title']
+            self.cm_ratings = jsondoc['movies'][0]['ratings']['critics_score']
+            self.cm_year = jsondoc['movies'][0]['year']
+            self.cm_synopsis = jsondoc['movies'][0]['synopsis']
+            self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
+            self.cm = [self.cm_title, self.cm_ratings, self.cm_year, self.cm_synopsis, self.cm_name]
+        except:
+            pass
 
         #print self._dos
 
