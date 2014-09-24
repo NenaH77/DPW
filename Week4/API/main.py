@@ -22,7 +22,9 @@ class MainHandler(webapp2.RequestHandler):
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies'].replace('', '+')
+            new_movies = self.request.GET['movies']
+            mov_mov = new_movies.replace("","+")
+            mm.movies=mov_mov
 
             #tells it to connect to the API
             mm.callApi()
@@ -34,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Critics Rating:' + mm.cm_ratings + '</p><br/><p class="info">Year:' + mm.cm_year + '</p><br/><p class="info">Synopsis:' + mm.cm_synopsis + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
+            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Critics Rating:' + str(mm.cm_ratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Synopsis:' + mm.cm_synopsis + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
 
         self.response.write(p.print_out())
 
