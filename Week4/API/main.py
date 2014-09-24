@@ -22,7 +22,7 @@ class MainHandler(webapp2.RequestHandler):
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies']
+            mm.movies = self.request.GET['movies'].replace('', '+')
 
             #tells it to connect to the API
             mm.callApi()
@@ -31,10 +31,10 @@ class MainHandler(webapp2.RequestHandler):
             mv = MovieView()
 
             #takes data obj from Model and gives them to the View
-            mv.mdos = mm.dos
+            mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = mv.content
+            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Critics Rating:' + mm.cm_ratings + '</p><br/><p class="info">Year:' + mm.cm_year + '</p><br/><p class="info">Synopsis:' + mm.cm_synopsis + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
 
         self.response.write(p.print_out())
 
@@ -47,14 +47,6 @@ class MovieView(object):
         #Placeholder for content section
         self.__content = '<br />'
 
-    #create function that updates our display
-    def update(self):
-        for do in self.__mdos:
-            self.__content += '<h2> Movie Title:' + do.title + '</h2>'
-            self.__content += '<p class="rating"> Critics Ratings:' + do.critics_score + '</p>'
-            self.__content += '<p class="year"> Year:' + do.year + '</p>'
-            self.__content += '<p class="syn"> Synopsis:' + do.synopsis + '</p>'
-            self.__content += '<p class="cast> Cast:' + do.name + '</p>'
 
     #this will allow us to read our content
     @property
@@ -71,20 +63,21 @@ class MovieView(object):
     @mdos.setter
     def mdos(self, arr):
         self.__mdos = arr
-        #this will allow us to update our function above
-        self.update()
 
 
 class MovieModel(object):
     ''' class handles how the data is shown to the user '''
     def __init__(self):
         self.__movies = ""
-        self.__jsondoc = ""
+
 
 
     #function used to call API and gather info Api
     def callApi(self):
         url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
+
+        print url
+
         #assembles the request
         request = urllib2.Request(url)
         #use the urllib2 to create object and get url
@@ -93,22 +86,23 @@ class MovieModel(object):
         result = opener.open(request)
 
         #parsing the json
-        self.__jsondoc = json.load(result)
+        jsondoc = json.load(result)
 
-        current_movies = self.__jsondoc['movies']
+
         #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
         self._dos = []
-        for item in current_movies:
-            do = MovieData()
-            do.title = item['movies'][0]['title']
-            do.ratings = item['movies'][0]['ratings']['critics_score']
-            do.year = item['movies'][0]['year']
-            do.synopsis = item['movies'][0]['synopsis']
-            do.name =item['movies'][0]['abridged_cast'][0]['name']
-            #put inside my array
-            self._dos.append(do)
+        #for item in current_movies:
+            #try:
+        self.cm_title = jsondoc['movies'][0]['title']
+        self.cm_ratings = jsondoc['movies'][0]['ratings']['critics_score']
+        self.cm_year = jsondoc['movies'][0]['year']
+        self.cm_synopsis = jsondoc['movies'][0]['synopsis']
+        self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
+        self.cm = [self.cm_title, self.cm_ratings, self.cm_year, self.cm_synopsis, self.cm_name]
+    #except:
+                #pass
 
-        print self._dos
+        #print self._dos
 
     #@property
     def dos(self):
