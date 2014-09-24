@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<div class"wrapper"><h3 class="title"> Movie Title: ' + mm.cm_title + '</h3><br/><p class="content"><strong> Poster: </strong></p>' + '<img src="' + mm.cm_poster +'" alt="poster" /><br/>' + '<p class="content"><strong> Movie Length: </strong>' + str(mm.cm_length) + 'mins</p><br/><p class="content"><strong> Rating: </strong>' + str(mm.cm_rating) + '</p><br/><p class="content"><strong> Critics Rating: <strong>' + str(mm.cm_cratings) + '</p><br/><p class="content"><strong> Year: </strong>' + str(mm.cm_year) + '</p><br/><p class="content"><strong> Featuring: </strong>' + mm.cm_name + '</p></div>'
+            p._body = '<div class"wrapper"><h3 class="title"> Movie Title: ' + mm.cm_title + '</h3><br/><p class="content"> Poster: </p>' + '<img src="' + mm.cm_poster +'" alt="poster" height="180" width="120"/><br/>' + '<p class="content"> Movie Length: ' + str(mm.cm_length) + 'mins</p><br/><p class="content"><strong> Rating: ' + str(mm.cm_rating) + '</p><br/><p class="content"> Critics Rating: ' + str(mm.cm_cratings) + '% </p><br/><p class="content"> Year: ' + str(mm.cm_year) + '</p><br/><p class="content"> Featuring: ' + mm.cm_name + '</p></div>'
 
         self.response.write(p.print_out())
 
@@ -94,7 +94,7 @@ class MovieModel(object):
         self.cm_rating = jsondoc['movies'][0]['mpaa_rating']
         self.cm_cratings = jsondoc['movies'][0]['ratings']['critics_score']
         self.cm_year = jsondoc['movies'][0]['year']
-        self.cm_poster = jsondoc['movies'][0]['posters']['thumbnail']
+        self.cm_poster = jsondoc['movies'][0]['posters']['detailed']
         self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
         self.cm = [self.cm_title, self.cm_length ,self.cm_rating, self.cm_cratings,self.cm_year, self.cm_poster, self.cm_name]
 
