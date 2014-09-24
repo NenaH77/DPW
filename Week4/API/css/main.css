@@ -1,0 +1,12 @@
+html, body {
+    font-family: san-serif;
+}
+
+body{
+    margin: 2px;
+    padding: 1px;
+}
+
+h2{
+    font-family: 'Copse', serif;
+}

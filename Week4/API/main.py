@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<p class="info">Poster:</p>' + '<img src="' + mm.cm_poster +'" alt="poster" />' + '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Movie Length:' + str(mm.cm_length) + '</p><br/><p class="info">Rating:' + str(mm.cm_rating) + '</p><br/><p class="info">Critics Rating:' + str(mm.cm_cratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
+            p._body = '<div class"wrapper"><h3> Movie Title: ' + mm.cm_title + '</h3><br/><p class="info"><strong> Poster: </strong></p>' + '<img src="' + mm.cm_poster +'" alt="poster" /><br/>' + '<p class="info"><strong> Movie Length: </strong>' + str(mm.cm_length) + 'mins</p><br/><p class="info"><strong> Rating: </strong>' + str(mm.cm_rating) + '</p><br/><p class="info"><strong> Critics Rating: <strong>' + str(mm.cm_cratings) + '</p><br/><p class="info"><strong> Year: </strong>' + str(mm.cm_year) + '</p><br/><p class="info"><strong> Featuring: </strong>' + mm.cm_name + '</p></div>'
 
         self.response.write(p.print_out())
 
@@ -126,6 +126,8 @@ class Page(object):
 <html>
     <head>
         <title>Movie Search</title>
+        <link type="text/css" rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
     </head>
     <body> '''
 
