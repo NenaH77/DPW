@@ -1,12 +1,33 @@
 html, body {
-    font-family: san-serif;
+    font-family: 'Copse', sans-serif;
+    text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
 }
 
-body{
-    margin: 2px;
-    padding: 1px;
+input[type='text']{
+	width:500px;
+	height:60px;
+	font-size: 50px;
+	text-align: center;
+	border-radius: 200px 200px 200px 200px;
+	border: 0px solid #000;
+	box-shadow: -3px 6px 53px 0px rgba(0,0,0,0.75);
+	padding:10px;
+	margin: 5px;
+
 }
 
-h2{
-    font-family: 'Copse', serif;
+input[type='submit']{
+	position:relative;
+	color:#fff;
+	background: linear-gradient(to right, rgba(253,237,137,1) 10%, rgba(255,215,0,1) 47%, rgba(255,173,0,1) 100%);
+	border-radius: 200px 200px 200px 200px;
+	border: 1px solid #ffd700;
+	box-shadow: -3px 6px 53px 0px rgba(0,0,0,0.75);
+	width:250px;
+	height:80px;
+	font: 50px;
+
 }

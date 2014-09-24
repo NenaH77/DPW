@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<div class"wrapper"><h3> Movie Title: ' + mm.cm_title + '</h3><br/><p class="info"><strong> Poster: </strong></p>' + '<img src="' + mm.cm_poster +'" alt="poster" /><br/>' + '<p class="info"><strong> Movie Length: </strong>' + str(mm.cm_length) + 'mins</p><br/><p class="info"><strong> Rating: </strong>' + str(mm.cm_rating) + '</p><br/><p class="info"><strong> Critics Rating: <strong>' + str(mm.cm_cratings) + '</p><br/><p class="info"><strong> Year: </strong>' + str(mm.cm_year) + '</p><br/><p class="info"><strong> Featuring: </strong>' + mm.cm_name + '</p></div>'
+            p._body = '<div class"wrapper"><h3 class="title"> Movie Title: ' + mm.cm_title + '</h3><br/><p class="content"><strong> Poster: </strong></p>' + '<img src="' + mm.cm_poster +'" alt="poster" /><br/>' + '<p class="content"><strong> Movie Length: </strong>' + str(mm.cm_length) + 'mins</p><br/><p class="content"><strong> Rating: </strong>' + str(mm.cm_rating) + '</p><br/><p class="content"><strong> Critics Rating: <strong>' + str(mm.cm_cratings) + '</p><br/><p class="content"><strong> Year: </strong>' + str(mm.cm_year) + '</p><br/><p class="content"><strong> Featuring: </strong>' + mm.cm_name + '</p></div>'
 
         self.response.write(p.print_out())
 
@@ -129,7 +129,11 @@ class Page(object):
         <link type="text/css" rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
     </head>
-    <body> '''
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Welcome to Movie Search</h1>
+            </header>'''
 
         self._body = ''
         self._close = '''
