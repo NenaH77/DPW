@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Movie Length:' + str(mm.cm_length) + '</p><br/><p class="info">Rating:' + str(mm.cm_rating) + '</p><br/><p class="info">Critics Rating:' + str(mm.cm_cratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Poster:</p>' + '<img src="' + mm.cm_poster +'" alt="poster" />' + '<p class="info">Featuring:' + mm.cm_name + '</p>'
+            p._body = '<p class="info">Poster:</p>' + '<img src="' + mm.cm_poster +'" alt="poster" />' + '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Movie Length:' + str(mm.cm_length) + '</p><br/><p class="info">Rating:' + str(mm.cm_rating) + '</p><br/><p class="info">Critics Rating:' + str(mm.cm_cratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
 
         self.response.write(p.print_out())
 
@@ -91,17 +91,9 @@ class MovieModel(object):
 
         self.cm_title = jsondoc['movies'][0]['title']
         self.cm_length = jsondoc['movies'][0]['runtime']
-
-
-
         self.cm_rating = jsondoc['movies'][0]['mpaa_rating']
         self.cm_cratings = jsondoc['movies'][0]['ratings']['critics_score']
         self.cm_year = jsondoc['movies'][0]['year']
-
-
-
-
-
         self.cm_poster = jsondoc['movies'][0]['posters']['thumbnail']
         self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
         self.cm = [self.cm_title, self.cm_length ,self.cm_rating, self.cm_cratings,self.cm_year, self.cm_poster, self.cm_name]
@@ -133,11 +125,11 @@ class Page(object):
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Welcome to Movie Search</title>
+        <title>Movie Search</title>
     </head>
     <body> '''
 
-        self._body = 'Movie App'
+        self._body = ''
         self._close = '''
     </body>
 </html> '''
