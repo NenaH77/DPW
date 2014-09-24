@@ -17,13 +17,14 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.GET:
             #get info from the API
             movies = self.request.GET['movies']
-            movies = movies.replace('','+')
 
             #we need to get movie into the MovieModel
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies']
+            mov_rep = self.request.GET['movies']
+            new_mov = mov_rep.replace('','_')
+            mm.movies = new_mov
 
             #tells it to connect to the API
             mm.callApi()
