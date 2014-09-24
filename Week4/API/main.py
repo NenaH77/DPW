@@ -23,7 +23,8 @@ class MainHandler(webapp2.RequestHandler):
 
             #send our movie from the URL to our Model
             mm.movies = self.request.GET['movies']
-            mm.movies = self.request.GET['movies'].replace(" ","+")#replaces spaces with plus to make searches work
+            #replaces spaces with plus to make searches work
+            mm.movies = self.request.GET['movies'].replace(" ","+")
 
             #tells it to connect to the API
             mm.callApi()
@@ -35,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
             mv.mdos = mm.cm
 
             #html body is displayed properly
-            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Critics Rating:' + str(mm.cm_ratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Synopsis:' + mm.cm_synopsis + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
+            p._body = '<h3>Movie Title:' + mm.cm_title + '</h3><br/><p class="info">Rating:' + str(mm.cm_rating) + '</p><br/><p class="info">Critics Rating:' + str(mm.cm_cratings) + '</p><br/><p class="info">Year:' + str(mm.cm_year) + '</p><br/><p class="info">Synopsis:' + mm.cm_synopsis + '</p><br/><p class="info">Featuring:' + mm.cm_name + '</p>'
 
         self.response.write(p.print_out())
 
@@ -88,25 +89,14 @@ class MovieModel(object):
         #parsing the json
         jsondoc = json.load(result)
 
+        self.cm_title = jsondoc['movies'][0]['title']
+        self.cm_rating = jsondoc['movies'][0]['mpaa_rating']
+        self.cm_cratings = jsondoc['movies'][0]['ratings']['critics_score']
+        self.cm_year = jsondoc['movies'][0]['year']
+        self.cm_synopsis = jsondoc['movies'][0]['synopsis']
+        self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
+        self.cm = [self.cm_title, self.cm_rating, self.cm_cratings,self.cm_year, self.cm_synopsis, self.cm_name]
 
-
-        #dos "Data Objects" property to contain do "Data Object" being passed from below for loop
-        self._dos = []
-        try:
-            self.cm_title = jsondoc['movies'][0]['title']
-            self.cm_ratings = jsondoc['movies'][0]['ratings']['critics_score']
-            self.cm_year = jsondoc['movies'][0]['year']
-            self.cm_synopsis = jsondoc['movies'][0]['synopsis']
-            self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
-            self.cm = [self.cm_title, self.cm_ratings, self.cm_year, self.cm_synopsis, self.cm_name]
-        except:
-            pass
-
-        #print self._dos
-
-    #@property
-    def dos(self):
-        return self._dos
 
     @property
     def movies(self):
@@ -122,6 +112,7 @@ class MovieData(object):
     def __init__(self):
         self.title = ''
         self.rating = ''
+        self.critics_ratings = ''
         self.year = ''
         self.synopsis = ''
         self.name = ''
