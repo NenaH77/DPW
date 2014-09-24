@@ -22,7 +22,7 @@ class MainHandler(webapp2.RequestHandler):
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies']
+            mm.movies = self.request.GET['movies'].replace('','+')
 
             #tells it to connect to the API
             mm.callApi()
@@ -74,7 +74,7 @@ class MovieModel(object):
 
     #function used to call API and gather info Api
     def callApi(self):
-        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies.replace('','+') + "&page_limit=1"
+        url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
 
         print url
 
