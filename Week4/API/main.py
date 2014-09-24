@@ -22,7 +22,8 @@ class MainHandler(webapp2.RequestHandler):
             mm = MovieModel()
 
             #send our movie from the URL to our Model
-            mm.movies = self.request.GET['movies'].replace('','')
+            mm.movies = self.request.GET['movies']
+            mm.movies = self.request.GET['movies'].replace(" ","+")#replaces spaces with plus to make searches work
 
             #tells it to connect to the API
             mm.callApi()
