@@ -49,7 +49,6 @@ class MovieView(object):
         #Placeholder for content section
         self.__content = '<br />'
 
-
     #this will allow us to read our content
     @property
     def content(self):
@@ -72,12 +71,9 @@ class MovieModel(object):
     def __init__(self):
         self.__movies = ""
 
-
     #function used to call API and gather info Api
     def callApi(self):
         url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=3wgzeuyj3ttnqnjbfr5xgafx&q=" + self.__movies + "&page_limit=1"
-
-        print url
 
         #assembles the request
         request = urllib2.Request(url)
@@ -89,6 +85,7 @@ class MovieModel(object):
         #parsing the json
         jsondoc = json.load(result)
 
+        #setting variables to values within the api obj
         self.cm_title = jsondoc['movies'][0]['title']
         self.cm_length = jsondoc['movies'][0]['runtime']
         self.cm_rating = jsondoc['movies'][0]['mpaa_rating']
@@ -96,8 +93,8 @@ class MovieModel(object):
         self.cm_year = jsondoc['movies'][0]['year']
         self.cm_poster = jsondoc['movies'][0]['posters']['detailed']
         self.cm_name =jsondoc['movies'][0]['abridged_cast'][0]['name']
+        #combining variables into an obj
         self.cm = [self.cm_title, self.cm_length ,self.cm_rating, self.cm_cratings,self.cm_year, self.cm_poster, self.cm_name]
-
 
     @property
     def movies(self):
@@ -106,7 +103,6 @@ class MovieModel(object):
     @movies.setter
     def movies(self, m):
         self.__movies = m
-
 
 class MovieData(object):
     ''' this data object holds the data fetched by the model and shown by the view '''
