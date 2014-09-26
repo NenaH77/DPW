@@ -13,11 +13,30 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage
         p.inputs = [['books', 'text', 'Book title'], ['author', 'text', 'Author Name'], ['submit', 'Submit']]
-        self.response.write('Hello world!')
 
 
 
+        if self.request.GET:
+            books = self.request.GET['books']
+            author = self.request.GET['author']
+            bm = BookModel()
+            bm.books = self.request.GET['books']
+            bm.author = self.request.GET['author']
+            bm.callApi()
+            bv = BookView()
+            bv.bdos = bm.dos
+            p._body = bv.content
+            #self.response.write('Hello world!')
 
+
+
+class BookView(object):
+    pass
+
+
+
+class BookModel(object):
+    pass
 
 class Page(object):
     pass
