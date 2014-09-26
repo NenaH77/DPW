@@ -31,7 +31,28 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class BookView(object):
-    pass
+    def __init__(self):
+        self.__bdos = []
+        self.__content = ""
+
+    def update(self):
+        pass
+
+    @property
+    def content(self):
+        return self.__content
+
+    @property
+    def bdos(self):
+        pass
+
+    @bdos.setter
+    def bdos(self, arr):
+        self.__bdos = arr
+
+        print self.__bdos
+
+
 
 
 
