@@ -80,10 +80,10 @@ class BookModel(object):
 
         for item in books:
             do = BookData()
-            do.title = item['items'][0]['volumeInfo'][0]['title']
-            do.author = item['items'][0]['volumeInfo'][0]['authors']
-            do.description = item['items'][0]['volumeInfo'][0]['description']
-            do.price = item['items'][0]['saleInfo']['listPrice']['amount']
+            do.title = item['volumeInfo']['title']
+            do.author = item['volumeInfo']['authors'][0]
+            do.description = item['volumeInfo'][0]['description']
+            do.price = item['saleInfo']['listPrice']['amount']
             self._dos.append(do)
 
         print self._dos
