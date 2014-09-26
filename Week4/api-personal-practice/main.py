@@ -23,10 +23,14 @@ class MainHandler(webapp2.RequestHandler):
             bm.books = self.request.GET['books']
             bm.author = self.request.GET['author']
             bm.callApi()
+
+            print bm.dos
+
             bv = BookView()
             bv.bdos = bm.dos
             p._body = bv.content
-            #self.response.write('Hello world!')
+
+            self.response.write(p.print_out())
 
 
 
@@ -59,8 +63,33 @@ class BookView(object):
 class BookModel(object):
     pass
 
-class Page(object):
+class BookData(object):
     pass
+
+
+class Page(object):
+    def __init__(self):
+        self._head = '''
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Book and Author Search</title>
+    </head>
+    <body>
+    '''
+        self._body = 'Books'
+        self._close = '''
+    </body>
+    <footer>
+        <p>API Book Search | Angelica M. Dinh </p>
+    </footer>
+</html>
+     '''
+
+    def print_out(self):
+        return self._body + self._body + self._close
+
+
 
 
 class FormPage(Page):
