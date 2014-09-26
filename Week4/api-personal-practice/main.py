@@ -129,6 +129,9 @@ class Page(object):
 </html>
      '''
 
+    def print_out(self):
+        return self._head + self._body + self._close
+
 class FormPage(Page):
     def __abs__(self):
         super(FormPage, self).__init__()
