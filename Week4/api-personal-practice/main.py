@@ -12,15 +12,17 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['books', 'text', 'Book title'],['Submit', 'submit']]
+        p.inputs = [['books', 'text', 'Book title'],['author', 'text', 'Author Name'],['Submit', 'submit']]
 
 
         if self.request.GET:
             books = self.request.GET['books']
-            #author = self.request.GET['author']
+            author = self.request.GET['author']
             bm = BookModel()
             bm.books = self.request.GET['books']
-            #bm.author = self.request.GET['author']
+            bm.books = self.request.GET['books'].replace("","+")
+            bm.author = self.request.GET['author']
+            bm.author = self.request.GET['author'].replace("","+")
             bm.callApi()
 
             print bm.dos
@@ -62,11 +64,11 @@ class BookModel(object):
     def __init__(self):
         self.__url = "https://www.googleapis.com/books/v1/volumes?q="
         self.__title = ""
-        #self.__author = ""
+        self.__author = ""
         self.__jsondoc = ""
 
     def callApi(self):
-        request = urllib2.Request(self.__url + self.__title)
+        request = urllib2.Request(self.__url + self.__title +"inauthor:"+ self.__author)
         opener = urllib2.build_opener()
         result = opener.open(request)
 
@@ -98,6 +100,13 @@ class BookModel(object):
     def title(self, t):
         self.__title = t
 
+    @property
+    def author(self):
+        pass
+
+    @author.setter
+    def author(self, a):
+        self.__author = a
 
 class BookData(object):
     def __init__(self):
