@@ -12,14 +12,12 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage
-        p.inputs = [['books', 'text', 'Book title'] , ['submit', 'Submit']]
+        p.inputs = [['books', 'text', 'Book title'],['submit', 'Submit']]
         #['author', 'text', 'Author Name']
-
-
 
         if self.request.GET:
             books = self.request.GET['books']
-            author = self.request.GET['author']
+            #author = self.request.GET['author']
             bm = BookModel()
             bm.books = self.request.GET['books']
             #bm.author = self.request.GET['author']
@@ -31,7 +29,7 @@ class MainHandler(webapp2.RequestHandler):
             bv.bdos = bm.dos
             p._body = bv.content
 
-            self.response.write(p.print_out())
+        self.response.write(p.print_out())
 
 
 
@@ -41,7 +39,11 @@ class BookView(object):
         self.__content = ""
 
     def update(self):
-        pass
+        for do in self.__bdos:
+            self.__content += do.title
+            self.__content += do.author
+            self.__content += do.description
+            self.__content += do.price
 
     @property
     def content(self):
@@ -54,15 +56,15 @@ class BookView(object):
     @bdos.setter
     def bdos(self, arr):
         self.__bdos = arr
+        self.update()
 
-        print self.__bdos
 
 
 
 class BookModel(object):
     def __init__(self):
         self.__url = "https://www.googleapis.com/books/v1/volumes?q="
-        self.__books = ""
+        self.__title = ""
         #self.__author = ""
         self.__jsondoc = ""
 
@@ -85,17 +87,19 @@ class BookModel(object):
             do.price = item['items'][0]['saleInfo']['listPrice']['amount']
             self._dos.append(do)
 
+        print self._dos
+
     @property
     def dos(self):
         return self._dos
 
     @property
-    def books(self):
+    def title(self):
         pass
 
-    @books.setter
-    def books(self, b):
-        self.__books = b
+    @title.setter
+    def title(self, t):
+        self.__title = t
 
 
 class BookData(object):
@@ -124,12 +128,6 @@ class Page(object):
     </footer>
 </html>
      '''
-
-    def print_out(self):
-        return self._body + self._body + self._close
-
-
-
 
 class FormPage(Page):
     def __abs__(self):

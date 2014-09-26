@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="367e0dc4-39af-43c3-a5a5-5b20fe167a85" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week4/api-personal-practice/main.py" afterPath="$PROJECT_DIR$/Week4/api-personal-practice/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DPW.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Week4/api-personal-practice/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5332303" vertical-offset="1408" max-vertical-offset="2490">
-              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.7727273" vertical-offset="1800" max-vertical-offset="2460">
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -94,7 +93,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="22" />
-    <option name="width" value="780" />
+    <option name="width" value="1206" />
     <option name="height" value="757" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -324,14 +323,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="22" width="780" height="757" extended-state="0" />
+    <frame x="-1" y="22" width="1206" height="757" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18589744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12023217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30071175" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -691,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Week4/api-personal-practice/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5332303" vertical-offset="1408" max-vertical-offset="2490">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.7727273" vertical-offset="1800" max-vertical-offset="2460">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
           <folding />
         </state>
       </provider>
