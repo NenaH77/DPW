@@ -12,7 +12,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['books', 'text', 'Book title'],['author', 'text', 'Author Name'],['Submit', 'submit']]
+        p.inputs = [['books', 'text', 'Book title'],['author', 'text', 'Author Name'],['Search', 'submit']]
 
 
         if self.request.GET:
@@ -37,7 +37,7 @@ class MainHandler(webapp2.RequestHandler):
 class BookView(object):
     def __init__(self):
         self.__bdos = []
-        self.__content = ""
+        self.__content = "<br />"
 
     def update(self):
         for do in self.__bdos:
@@ -62,13 +62,13 @@ class BookView(object):
 
 class BookModel(object):
     def __init__(self):
-        self.__url = "https://www.googleapis.com/books/v1/volumes?q="
+        self.__url = "https://www.googleapis.com/books/v1/volumes?q='"
         self.__title = ""
         self.__author = ""
         self.__jsondoc = ""
 
     def callApi(self):
-        request = urllib2.Request(self.__url + self.__title +"inauthor:"+ self.__author)
+        request = urllib2.Request(self.__url + self.__title + self.__author)
         opener = urllib2.build_opener()
         result = opener.open(request)
 
@@ -80,11 +80,14 @@ class BookModel(object):
 
         for item in books:
             do = BookData()
-            do.title = item['volumeInfo']['title']
-            do.author = item['volumeInfo']['authors'][0]
-            do.description = item['volumeInfo'][0]['description']
-            do.price = item['saleInfo']['listPrice']['amount']
-            self._dos.append(do)
+            try:
+                do.title = item['volumeInfo']['title']
+                do.author = item['volumeInfo']['authors'][0]
+                do.description = item['volumeInfo']['description']
+                do.price = item['listPrice']['amount']
+                self._dos.append(do)
+            except:
+                self._dos.append(do)
 
         print self._dos
 
