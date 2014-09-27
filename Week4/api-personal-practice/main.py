@@ -41,10 +41,11 @@ class BookView(object):
 
     def update(self):
         for do in self.__bdos:
-            self.__content += do.title
-            self.__content += do.author
-            self.__content += do.description
-            self.__content += do.price
+            self.__content += "<img src='>" + do.image + "'alt='poster'/>"
+            self.__content += "<h3>Title: " + do.title + "</h3>"
+            self.__content += "<p>Author: " + do.author + "</p>"
+            self.__content += "<p>Description: " + do.description + "</p>"
+
 
     @property
     def content(self):
@@ -84,7 +85,7 @@ class BookModel(object):
                 do.title = item['volumeInfo']['title']
                 do.author = item['volumeInfo']['authors'][0]
                 do.description = item['volumeInfo']['description']
-                do.price = item['listPrice']['amount']
+                do.image = item['volumeInfo']['imageLinks']['small']
                 self._dos.append(do)
             except:
                 self._dos.append(do)
@@ -116,7 +117,7 @@ class BookData(object):
         self.title = ''
         self.author = ''
         self.description = ''
-        self.price = ''
+        self.image = ''
 
 
 class Page(object):
