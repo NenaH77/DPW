@@ -129,7 +129,13 @@ class Page(object):
     </head>
     <body>
     '''
-        self._body = 'Books'
+        self._body = '''
+        <div class='wrapper'>
+            <h3>Welcome to HookBook</h3>
+                <p>Search for your next book</p>
+        </div>
+
+        '''
         self._close = '''
     </body>
     <footer>
