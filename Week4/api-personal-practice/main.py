@@ -12,7 +12,7 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['books', 'text', 'Book title'],['author', 'text', 'Author Name'],['Search', 'submit']]
+        p.inputs = [['books', 'text', 'Book title'],['author', 'text', 'Author Name'],['Submit', 'submit']]
 
 
         if self.request.GET:
@@ -20,9 +20,9 @@ class MainHandler(webapp2.RequestHandler):
             author = self.request.GET['author']
             bm = BookModel()
             bm.books = self.request.GET['books']
-            bm.books = self.request.GET['books'].replace("","+")
+            bm.books = self.request.GET['books'].replace(" ","+")
             bm.author = self.request.GET['author']
-            bm.author = self.request.GET['author'].replace("","+")
+            bm.author = self.request.GET['author'].replace(" ","+")
             bm.callApi()
 
             print bm.dos
@@ -41,10 +41,12 @@ class BookView(object):
 
     def update(self):
         for do in self.__bdos:
-            self.__content += "<img src='>" + do.image + "'alt='poster'/>"
             self.__content += "<h3>Title: " + do.title + "</h3>"
             self.__content += "<p>Author: " + do.author + "</p>"
+            self.__content += "<img src=" + do.image + "alt='image' height='180' width='120'/>"
             self.__content += "<p>Description: " + do.description + "</p>"
+            self.__content += "<p>Price: $" + str(do.price) + "</p>"
+
 
 
     @property
@@ -85,12 +87,13 @@ class BookModel(object):
                 do.title = item['volumeInfo']['title']
                 do.author = item['volumeInfo']['authors'][0]
                 do.description = item['volumeInfo']['description']
-                do.image = item['volumeInfo']['imageLinks']['small']
+                do.image = item['volumeInfo']['imageLinks']['thumbnail']
+                do.price = item['retailPrice']['amount']
                 self._dos.append(do)
             except:
                 self._dos.append(do)
 
-        print self._dos
+        print do.price
 
     @property
     def dos(self):
@@ -118,7 +121,7 @@ class BookData(object):
         self.author = ''
         self.description = ''
         self.image = ''
-
+        self.price = ''
 
 class Page(object):
     def __init__(self):
