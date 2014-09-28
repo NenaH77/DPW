@@ -88,7 +88,7 @@ class BookModel(object):
                 do.author = item['volumeInfo']['authors'][0]
                 do.description = item['volumeInfo']['description']
                 do.image = item['volumeInfo']['imageLinks']['thumbnail']
-                do.price = item['retailPrice']['amount']
+                do.price = item['saleInfo']['retailPrice']['amount']
                 self._dos.append(do)
             except:
                 self._dos.append(do)
